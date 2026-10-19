@@ -1,0 +1,29 @@
+{
+  "date_utc": "2026-10-19T18:17:08.618021+00:00",
+  "model_id": "stable-diffusion-v1-5/stable-diffusion-v1-5",
+  "device": "mps",
+  "dtype": "torch.float16",
+  "torch": "2.14.1",
+  "diffusers": "0.41.0",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "machine": "arm64",
+  "steps": 25,
+  "guidance_scale": 7.5,
+  "prompt": "A portrait photograph of a woman, head and shoulders.",
+  "n_timed": 20,
+  "seconds_per_image": {
+    "mean": 12.947385170776396,
+    "median": 12.956936645554379,
+    "min": 12.677351374877617,
+    "max": 13.155748708173633
+  },
+  "projected_hours": {
+    "750": 2.7,
+    "1200": 4.32,
+    "1700": 6.11
+  },
+  "safety_flagged": 1,
+  "all_black": 1,
+  "embeds_mean_abs_pixel_diff": 0.0,
+  "embeds_verdict": "PASS"
+}
