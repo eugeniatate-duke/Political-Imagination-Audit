@@ -2,3 +2,7 @@
 __pycache__/
 outputs/
 .DS_Store
+outputs/*/images/
+outputs/validation/images/
+*.log
+__pycache__/
