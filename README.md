@@ -188,4 +188,8 @@ Check author lists and titles against the PDFs before submitting. Add models and
 
 ## 10. Cite and license
 
-**[FILL: license for code; note on data and model licenses.]**
+- Code and documentation: MIT License (see `LICENSE`).
+- Generated images are outputs of Stable Diffusion XL base 1.0 and fall under that model's license terms: check the model card before reusing them. The labels and tables are shared for research and teaching.
+- No real person's photograph is used anywhere in this project.
+
+If you use this audit, cite this repository and the papers in the references.
