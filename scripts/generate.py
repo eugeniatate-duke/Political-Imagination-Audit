@@ -71,8 +71,13 @@ ENGINES = {
     "sd15tall": dict(model="stable-diffusion-v1-5/stable-diffusion-v1-5", width=512, height=768,
                      steps=25, guidance=7.5, seconds=None),
     "sdxl":     dict(model="stabilityai/stable-diffusion-xl-base-1.0", width=832, height=1216,
-                     steps=30, guidance=5.0, seconds=None),
+                     steps=30, guidance=5.0, seconds=150),      # measured about 150-180 s/image on the M4 Pro
+    # Faster SDXL (added 2026-11-22 after the full-size pilot measured ~150 s/image): fewer pixels and
+    # steps. Quality is judged by eye in the pilot before use (D14 rules R1-R4 apply unchanged).
+    "sdxlfast": dict(model="stabilityai/stable-diffusion-xl-base-1.0", width=768, height=1024,
+                     steps=20, guidance=5.0, seconds=None),
 }
+ATTN_SLICING = False        # optional (--attn-slicing): chunked attention; same math, may help memory-limited Macs
 ENGINE = "sd15"
 MODEL_ID = STEPS = GUIDANCE = WIDTH = HEIGHT = MEASURED_SECONDS_PER_IMAGE = None
 
@@ -350,7 +355,7 @@ def load_pipeline(fp32):
 
     device = "mps" if torch.backends.mps.is_available() else "cpu"
     dtype = torch.float32 if (fp32 or device == "cpu") else torch.float16
-    if ENGINE == "sdxl":
+    if ENGINE.startswith("sdxl"):
         from diffusers import StableDiffusionXLPipeline
 
         kwargs = dict(torch_dtype=dtype, use_safetensors=True, add_watermarker=False)
@@ -363,6 +368,8 @@ def load_pipeline(fp32):
 
         pipe = StableDiffusionPipeline.from_pretrained(MODEL_ID, torch_dtype=dtype).to(device)
     pipe.set_progress_bar_config(disable=True)
+    if ATTN_SLICING:
+        pipe.enable_attention_slicing()
 
     def generate(prompt, seed, negative_prompt=""):
         # Seed on the CPU so the starting noise is identical across runs and devices.
@@ -394,6 +401,7 @@ def load_pipeline(fp32):
         "size": WIDTH if WIDTH == HEIGHT else f"{WIDTH}x{HEIGHT}",
         "width": WIDTH,
         "height": HEIGHT,
+        "attention_slicing": ATTN_SLICING,
     }
     return generate, meta
 
@@ -544,7 +552,7 @@ def main():
         p = sub.add_parser(name)
         p.add_argument("mode", choices=["pilot", "pilot2", "pilot3", "pilot4", "pilot5", "main"])
         p.add_argument("--engine", default="sd15", choices=sorted(ENGINES),
-                       help="sd15 (default, 512x512), sd15tall (512x768) or sdxl (832x1216)")
+                       help="sd15 (default, 512x512), sd15tall (512x768), sdxl (832x1216, 30 steps) or sdxlfast (768x1024, 20 steps)")
         p.add_argument("--out", default="outputs", help="output root folder (default: outputs)")
         if name in ("plan", "run"):
             p.add_argument("--templates", default=None,
@@ -553,6 +561,7 @@ def main():
                            help=f"number of seeds for main (default {MAIN_N_SEEDS})")
         if name == "run":
             p.add_argument("--fp32", action="store_true", help="float32 instead of float16")
+            p.add_argument("--attn-slicing", action="store_true", help="enable attention slicing (speed/memory experiment)")
             p.add_argument("--limit", type=int, default=None, help="generate only the next N images")
         if name == "sheet":
             p.add_argument("--page-size", type=int, default=36)
@@ -561,6 +570,8 @@ def main():
     args = ap.parse_args()
 
     set_engine(args.engine)
+    global ATTN_SLICING
+    ATTN_SLICING = bool(getattr(args, "attn_slicing", False))
     templates = ([t.strip() for t in args.templates.split(",")]
                  if getattr(args, "templates", None) else None)
     if args.cmd == "plan":

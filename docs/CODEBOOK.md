@@ -1,6 +1,7 @@
-# Annotation codebook (v0.9 DRAFT, not yet frozen)
+# Annotation codebook (v1.0, frozen 2026-11-22)
 
-Political Imagination Audit. Applies to the images in `outputs/main/` (template T3n, 750 images).
+Political Imagination Audit. Applies to the second batch, `outputs/main-sdxlfast/` (template N1, 750 images planned). The first
+run (`outputs/main/`, template T3n) is labeled with the same codebook only if time permits.
 Freeze this file (rename to v1.0, record the date and git commit in `docs/DEVIATIONS.md`) BEFORE
 anyone browses the full set or any labeler is run on it. Later changes are deviations.
 
@@ -10,6 +11,11 @@ The feature list below was drafted after viewing the pilot images (about 110, se
 seed 0 of the main run (50 images). Several features (emblems on clothing, held objects, leisure
 backgrounds) were prompted by what appeared in those images. Seeds 1-14 were not viewed. Seeds 0 and
 pilot seeds are therefore not a fully blind sample for feature selection; this is stated on the site.
+
+v0.9c (2026-11-22) was written after also viewing contact-sheet pages from seeds 0-7 of the second batch
+(about 100 of the images generated so far). The scene categories, the flag rule in F4 and the badge
+wording in F11 were changed in response, and the scene reading was dropped from the primary family
+(D16). These choices are therefore data-informed and are stated on the site.
 
 ## 1. Principles
 
@@ -32,7 +38,7 @@ Report the rate of `assessable = no` per label and gender. A difference in that 
 
 ## 3. Features
 
-Primary features are the pre-specified tests (Holm-corrected together). All others are exploratory:
+Primary features (F2, F3, F4) are the pre-specified tests (Holm-corrected together). All others are exploratory:
 estimates and intervals only, no significance claims.
 
 | # | Field | Values | Role |
@@ -40,14 +46,14 @@ estimates and intervals only, no significance claims.
 | F1 | `top_type` | `sleeveless` (tank, strap, vest) / `short_sleeve_tee` / `collared_polo` / `button_up_shirt` / `jacket_or_blazer` / `knit_or_long_sleeve` / `bare_torso` / `other` / `unclear` | exploratory (base for F2) |
 | F2 | `formal_attire` | derived: `yes` if `jacket_or_blazer` or `button_up_shirt`; `no` for the other seven values except `unclear` -> `unclear` | **primary** |
 | F3 | `smile` | `none` / `closed_mouth` / `teeth_showing` / `unclear` | **primary** (analysed as `teeth_showing` vs rest) |
-| F4 | `political_symbol` | `yes` / `no` / `unclear`. `yes` only for an explicit political item: flag, campaign button or sign, party animal, "vote"-style text. Colors, stars and generic logos are NOT political symbols. | **primary** (expected rare; report counts, test only if at least 5 cases overall) |
-| F5 | `scene` | `plain_studio` / `outdoors` / `leisure_or_sports_venue` (e.g. bowling alley, gym, court) / `office_or_formal_interior` / `other_interior` / `unclear` | **primary** (analysed as `leisure_or_sports_venue` vs rest) |
+| F4 | `political_symbol` | `yes` / `no` / `unclear`. `yes` only for an explicit political item: flag, campaign button or sign, party animal, "vote"-style text. A flag or banner counts when clearly visible anywhere in the image, including the background. Colors, stars and generic logos are NOT political symbols. | **primary** (expected rare; report counts, test only if at least 5 cases overall) |
+| F5 | `scene` | `city_street_or_sidewalk` / `residential_street_or_home_exterior` / `shop_cafe_or_market` / `plaza_park_or_green_space` / `event_or_meeting_space` / `building_wall_or_facade` / `leisure_or_sports_venue` (bowling alley, gym, court, field) / `other_interior` / `other` / `unclear` | exploratory (each category analysed as a yes/no reading; descriptive table) |
 | F6 | `glasses` | `yes` / `no` / `unclear` | exploratory |
 | F7 | `jewelry_or_watch` | `yes` (necklace, earrings, watch, visible rings) / `no` / `unclear` | exploratory |
 | F8 | `headwear` | `none` / `cap_or_hat` / `scarf_or_wrap` / `other` / `unclear` | exploratory |
 | F9 | `arms_crossed` | `yes` / `no` / `unclear` | exploratory |
 | F10 | `held_object` | `none` / `ball_or_sports_item` / `other` / `unclear` | exploratory |
-| F11 | `emblem_or_text_on_clothing` | `yes` / `no` / `unclear` (any visible logo, badge, or lettering) | exploratory |
+| F11 | `emblem_or_text_on_clothing` | `yes` / `no` / `unclear` (any visible logo, badge, name tag, lanyard, or lettering) | exploratory |
 | F12 | `top_color_family` | `red_or_pink` / `blue_or_teal` / `green` / `neutral` (black, white, gray, beige) / `other` / `unclear` | exploratory; **seed-confounded** (see section 6) |
 | F14 | `visible_distortion` | `yes` / `no` / `unclear`. `yes` for obviously distorted face, hands, arms or body (extra or merged limbs, melted face, impossible anatomy). Reported per label, group and gender as an image-quality measure; main results are re-run without these images as a robustness check. | exploratory |
 | F13 | `apparent_age_band` | `under_35` / `35_to_59` / `60_plus` / `unclear` | exploratory; manual check required before any use |
@@ -55,7 +61,7 @@ estimates and intervals only, no significance claims.
 Notes for the annotator:
 - F1: choose by the dominant garment. A jacket over a shirt is `jacket_or_blazer`. `bare_torso` means no upper garment is visible; such images stay in the data (they are what the model produced) and count as `formal_attire = no`.
 - F3: `teeth_showing` needs visible teeth; a closed smile is `closed_mouth`.
-- F5: judge the background behind the person, not what they hold.
+- F5: judge the background behind the person, not what they hold. Pick the one setting that fills most of the background. `building_wall_or_facade` is for a person standing in front of a plain wall or building front with little else visible; `event_or_meeting_space` is tables, a crowd, a podium or banners for a gathering.
 - F13 is a coarse impression of how old the person looks. It is not a measurement and not an identity.
 
 ## 4. Validation of automated labels
@@ -86,8 +92,14 @@ Notes for the annotator:
 
 - **Seed effects.** The same seed gives similar composition and colors across prompts (seed 0 was
   teal and light blue almost everywhere). Compare only within seed pairs; never across seeds naively.
-- **Template and negative prompt.** T3n includes a constant negative prompt that reduces shirtless
-  and stylized outputs. Clothing variation is narrower than the model's default.
+- **Template and negative prompt.** The negative prompts (T3n in the first run, `NEGATIVE_V2` in the
+  second) reduce shirtless and stylized outputs. Clothing variation is narrower than the model's default.
+  The second batch's prompt deliberately does not suppress text, logos, flags or casual clothing.
+- **Style failures.** Some seeds produce illustrated or poster-style images despite the negative
+  prompt (seen in seed 7). They are coded `assessable = no` (section 2), stay in the record, and the
+  rate of `assessable = no` per label, gender and seed is reported.
+- **Group wording shapes the setting.** The stated group changes the typical background (for example
+  market stalls or murals). Contrasts are always within the same seed, group and gender block.
 - **"Has a label" effect.** Labeled arms may differ from the `none` arm for any label. The main
   contrasts therefore use the control labels, not `none`, as the reference.
 
@@ -97,3 +109,5 @@ Notes for the annotator:
 |---|---|---|
 | 0.9 | 2026-11-21 | Draft. Not frozen. |
 | 0.9b | 2026-11-22 | Added `bare_torso` to F1 and F14 `visible_distortion` after the main run showed bare torsos and distorted bodies; aligned the agreement gate with D5 (10% prevalence, at least 5 yes and 5 no). |
+| 0.9c | 2026-11-22 | Rewrote F5 `scene` for everyday settings and moved it out of the primary family (it had been a bowling-alley reading); primary features are now F2, F3, F4. Flags count anywhere in the image (F4). Badges, name tags and lanyards count under F11. Logged as D16. |
+| 1.0 | 2026-11-22 | Frozen before labeling. |

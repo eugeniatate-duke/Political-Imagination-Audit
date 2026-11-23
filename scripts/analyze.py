@@ -20,9 +20,9 @@ Contrasts:
     CTRL     control 1 - control 2 (non-political pair)              (the baseline for "any label swap")
     EXCESS   |RD_DR| - |RD_CTRL|, bootstrap interval only            (is the party swap larger than the baseline?)
     vs none  each label minus the no-label image                     (descriptive)
-Only the four PRIMARY_READINGS get p-values for DR, with Holm correction across the four. All other
+Only the PRIMARY_READINGS (see scripts/codebook.py) get p-values for DR, with Holm correction across them. All other
 readings are exploratory: estimates and intervals, no significance claims. With 15 seeds only large
-effects are detectable (see docs/PREREGISTRATION.md and scripts/power_sim.py); intervals will be wide.
+effects are detectable (see docs/ANALYSIS_PLAN.md and scripts/power_sim.py); intervals will be wide.
 
 Calibration (tests/test_analyze.py, synthetic null with seed effects, 15 seeds): the permutation test
 rejected at 3% for a nominal 5% (conservative, as exact tests on few clusters are), but the nominal 95%
@@ -154,14 +154,16 @@ def contrast(df, a, b, reading, seeds, idx, rng, test=False):
 # ----------------------------------------------------------------------------------
 # Tables
 # ----------------------------------------------------------------------------------
-def build_tables(df, controls, rng):
+def build_tables(df, controls, rng, gate=None):
     labeled = df[df.labeled & ~df.blank]
     seeds = np.array(sorted(labeled.seed.unique()))
     idx = boot_idx(len(seeds), rng)
     c1, c2 = controls
     rows, primary_p = [], {}
     for reading in cb.BINARY_READINGS:
-        is_primary = reading in cb.PRIMARY_READINGS
+        # A primary reading that failed the agreement gate (D5) is demoted: estimates only, no p-value.
+        is_primary = reading in cb.PRIMARY_READINGS and (gate is None or gate.get(reading, False))
+        failed_gate = reading in cb.PRIMARY_READINGS and not is_primary
         dr = contrast(labeled, "dem", "rep", reading, seeds, idx, rng, test=is_primary)
         ct = contrast(labeled, c1, c2, reading, seeds, idx, rng)
         if not (np.isnan(dr["rd"]) or np.isnan(ct["rd"])):
@@ -173,7 +175,8 @@ def build_tables(df, controls, rng):
         if is_primary:
             primary_p[reading] = dr["p"]
         rows.append(dict(
-            reading=reading, family="primary" if is_primary else "exploratory",
+            reading=reading, family="primary" if is_primary else ("failed_gate" if failed_gate else "exploratory"),
+            gate_passed=(None if gate is None else gate.get(reading)),
             DR_rd=dr["rd"], DR_lo=dr["lo"], DR_hi=dr["hi"], DR_p=dr["p"],
             DR_blocks_used=dr["n_blocks_valid"], DR_blocks_total=dr["n_blocks"],
             CTRL_rd=ct["rd"], CTRL_lo=ct["lo"], CTRL_hi=ct["hi"],
@@ -195,7 +198,7 @@ def build_tables(df, controls, rng):
     subgroup = []
     for dim in ("group", "gender"):
         for val, part in labeled.groupby(dim):
-            for reading in cb.PRIMARY_READINGS:
+            for reading in [r for r in cb.PRIMARY_READINGS if gate is None or gate.get(r, False)]:
                 r = contrast(part, "dem", "rep", reading, seeds, idx, rng)
                 subgroup.append(dict(dimension=dim, value=val, reading=reading, DR_rd=r["rd"], lo=r["lo"],
                                      hi=r["hi"], blocks_used=r["n_blocks_valid"]))
@@ -207,7 +210,7 @@ def build_tables(df, controls, rng):
         clean = labeled[~key.isin(distorted.set_index(["seed", "group", "gender"]).index)]
     else:
         clean = labeled
-    for reading in cb.PRIMARY_READINGS:
+    for reading in [r for r in cb.PRIMARY_READINGS if gate is None or gate.get(r, False)]:
         r = contrast(clean, "dem", "rep", reading, seeds, idx, rng, test=True)
         rob.append(dict(reading=reading, DR_rd=r["rd"], lo=r["lo"], hi=r["hi"], p=r["p"],
                         blocks_used=r["n_blocks_valid"], blocks_dropped_for_distortion=len(distorted)))
@@ -239,6 +242,8 @@ def main():
     ap.add_argument("--model", default=None, help="labeler model name to use (default: any)")
     ap.add_argument("--controls", default=None, help="two control label keys; default from the template")
     ap.add_argument("--results", default="results")
+    ap.add_argument("--gate", default=None,
+                    help="agreement.json from scripts/agreement.py; primary readings that failed are demoted")
     args = ap.parse_args()
 
     out_dir = Path(args.out) / args.mode
@@ -253,7 +258,11 @@ def main():
         raise SystemExit("no labeled images found; run scripts/label_vlm.py first")
 
     rng = np.random.default_rng(RNG_SEED)
-    contrasts, vs_none, subgroup, rob, rates, quality, seeds = build_tables(df, controls, rng)
+    gate = json.loads(Path(args.gate).read_text()) if args.gate else None
+    if gate is None:
+        print("WARNING: no --gate given; every primary reading is treated as validated. "
+              "Run scripts/agreement.py first and pass its agreement.json.")
+    contrasts, vs_none, subgroup, rob, rates, quality, seeds = build_tables(df, controls, rng, gate)
 
     res = Path(args.results) / args.mode
     res.mkdir(parents=True, exist_ok=True)
@@ -264,7 +273,7 @@ def main():
         created_utc=datetime.now(timezone.utc).isoformat(), mode=args.mode, templates=templates,
         controls=controls, n_images=int(len(df)), n_blank=int(df.blank.sum()), n_labeled=int(df.labeled.sum()),
         n_seeds_used=int(len(seeds)), seeds=[int(s) for s in seeds], codebook_version=cb.CODEBOOK_VERSION,
-        n_boot=N_BOOT, rng_seed=RNG_SEED, labeler_models=sorted(
+        n_boot=N_BOOT, rng_seed=RNG_SEED, gate=gate, labeler_models=sorted(
             {json.loads(l)["model"] for l in (out_dir / args.labels_file).read_text().splitlines() if l.strip()}),
     )
     (res / "manifest.json").write_text(json.dumps(manifest, indent=2))

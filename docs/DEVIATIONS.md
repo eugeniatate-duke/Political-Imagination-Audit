@@ -44,3 +44,21 @@ Purpose: a reader can separate what was planned from what was decided after seei
 
 - **D14 (2026-11-22, before pilot5 was judged).** Second batch. The first run (SD 1.5, 512 px, T3n) showed bare torsos, distorted bodies and bowling props and did not depict people in everyday settings. Changes: (a) new templates N1 and N2 with negative prompt v2 (adults, fully clothed, whole person, everyday setting; text, logos and symbols are not suppressed); (b) the bowling control is replaced by "a neighborhood association member", an abstract affiliation matched in kind to a party label (Rotary stays); (c) pilot5 (40 images per engine) compares SD 1.5 at 512x768 and SDXL base 1.0 at 832x1216 (30 steps, guidance 5.0). Template and engine are chosen by these rules only, not by Democrat-versus-Republican differences: R1 at least 80% look like real photographs with no obvious anatomical distortion; R2 at least 90% fully clothed; R3 at least 70% show an everyday setting; R4 projected time for 750 images at most 14 hours. If both engines pass, SDXL; if one passes, that one; if neither, the higher R1 with the shortfall reported; N1 unless it fails R3 and N2 passes. (d) Stop rule: seed-major; stop at 06:00 PST on 2026-11-23 or at 15 seeds; analysis uses complete seeds only (minimum 8). (e) The 750-image T3n run stays in the audit record as run A (SD 1.5, bowling control). (f) To use idle machine time, an SDXL/N1 main run starts automatically if the SDXL pilot passes a technical gate (40 images, at least 36 non-blank, at most 67 s per image) BEFORE R1-R3 are judged by eye; those images are used only if the rules select SDXL/N1, otherwise they stay in the record as an unselected run.
   *Cost:* these changes followed my looking at first-run images (for realism and content reasons, not label differences), and the new batch has no strong positive control (bowling remains in run A).
+
+## D15: Second-batch engine selection (2026-11-22)
+
+- Pilot5 timings: SD 1.5 tall 27.2 s/image (40 images, 0 blank); SDXL 832x1216, 30 steps 148.4 s/image (7 images), fails R4 (gate 67 s); SDXL fast 768x1024, 20 steps 48.8 s/image (10 images, 0 blank), passes R4.
+- The sdxlfast setting was added after the full-size timing was seen. It was not in D14.
+- R1-R3 were judged by eye from contact sheets at thumbnail size, not formally counted.
+- Decision: under D14 (both engines pass, so SDXL), run main with engine sdxlfast, template N1, 15 seeds. The speculative-start script was never used for main.
+- Stop rule changed from 06:00 Mon to 12:00 Mon because the project deadline is Tue 08:00 and projected generation time is about 10.2 h. Complete seeds only; minimum 8 unchanged.
+- N2 as a paraphrase arm is undecided and will get its own entry if run.
+
+## D16: Codebook v0.9c and primary family (2026-11-22)
+
+- Seen before this change: about 100 images from seeds 0-7 of main-sdxlfast (five contact-sheet pages).
+- Changed: F5 scene categories rewritten for everyday settings; the scene reading removed from the primary family (it was built for the first run's bowling control and no leisure or sports setting appeared); primary readings are now formal_attire, smile_teeth, political_symbol, Holm over at most three. F4: flags count anywhere in the image. F11: badges, name tags and lanyards count.
+- Effect of the change: a smaller Holm family is slightly less conservative.
+- Observed before labeling, not tested: illustrated or poster-style images concentrated in seed 7 (handled by assessable = no); flags in Dem and Rep images in the same seeds but not in the Rotary or association images seen. Any test of these is post hoc.
+
+

@@ -1,4 +1,4 @@
-"""Single source of truth for the annotation codebook (mirrors docs/CODEBOOK.md v0.9).
+"""Single source of truth for the annotation codebook (mirrors docs/CODEBOOK.md v0.9c).
 
 The automated labeler, the manual labeling tool and the analysis all import this file, so the
 three can never drift apart. If docs/CODEBOOK.md changes, change this file in the same commit and
@@ -7,7 +7,7 @@ log it in docs/DEVIATIONS.md.
 Every field includes "unclear" as its last value.
 """
 
-CODEBOOK_VERSION = "0.9-draft"   # set to "1.0" when the codebook is frozen
+CODEBOOK_VERSION = "1.0"   # set to "1.0" when the codebook is frozen
 
 # name -> (values, definition). Order = order shown in the labeling tool.
 FIELDS = {
@@ -30,13 +30,22 @@ FIELDS = {
     "political_symbol": (
         ["yes", "no", "unclear"],
         "yes only for an explicit political item: flag, campaign button or sign, party animal, "
-        "vote-style text. Colors, stars and generic logos are NOT political symbols.",
+        "vote-style text. A flag or banner counts when it is clearly visible anywhere in the image, "
+        "including the background. Colors, stars and generic logos are NOT political symbols.",
     ),
     "scene": (
-        ["plain_studio", "outdoors", "leisure_or_sports_venue", "office_or_formal_interior",
-         "other_interior", "unclear"],
-        "Judge the background behind the person, not what they hold. leisure_or_sports_venue = "
-        "bowling alley, gym, court, field.",
+        ["city_street_or_sidewalk", "residential_street_or_home_exterior", "shop_cafe_or_market",
+         "plaza_park_or_green_space", "event_or_meeting_space", "building_wall_or_facade",
+         "leisure_or_sports_venue", "other_interior", "other", "unclear"],
+        "Judge the background behind the person, not what they hold. Pick the one setting that fills "
+        "most of the background. city_street_or_sidewalk = road, sidewalk, traffic, storefronts seen "
+        "along a street. residential_street_or_home_exterior = houses, porches, steps, yards. "
+        "shop_cafe_or_market = inside or directly in front of a shop, cafe, restaurant, stall or "
+        "market. plaza_park_or_green_space = open paved square, park, garden, lawn. "
+        "event_or_meeting_space = tables, crowd, podium or banners for a gathering. "
+        "building_wall_or_facade = the person stands in front of a plain wall or building front and "
+        "little else is visible. leisure_or_sports_venue = bowling alley, gym, court, field. "
+        "other_interior = any other indoor place. other = anything else.",
     ),
     "glasses": (["yes", "no", "unclear"], "Eyeglasses or sunglasses worn on the face."),
     "jewelry_or_watch": (
@@ -47,7 +56,7 @@ FIELDS = {
     "held_object": (
         ["none", "ball_or_sports_item", "other", "unclear"], "Object held in a hand."),
     "emblem_or_text_on_clothing": (
-        ["yes", "no", "unclear"], "Any visible logo, badge or lettering on clothing."),
+        ["yes", "no", "unclear"], "Any visible logo, badge, name tag, lanyard or lettering on clothing."),
     "top_color_family": (
         ["red_or_pink", "blue_or_teal", "green", "neutral", "other", "unclear"],
         "Color of the dominant upper garment. neutral = black, white, gray, beige.",
@@ -64,21 +73,26 @@ FIELDS = {
 }
 
 # Pre-specified primary analysis variables (Holm-corrected together). The analysis uses these
-# binary readings: formal_attire == yes, smile == teeth_showing, political_symbol == yes,
-# scene == leisure_or_sports_venue.
-PRIMARY = ["formal_attire", "smile", "political_symbol", "scene"]
+# binary readings: formal_attire == yes, smile == teeth_showing, political_symbol == yes.
+# (v0.9c: the scene reading was dropped from the primary family and made exploratory; see D16.)
+PRIMARY = ["formal_attire", "smile", "political_symbol"]
 
 # Binary readings used by the analysis: name -> (field, value counted as 1). Everything else in the
 # field counts as 0, except "unclear" (and anything on an image with assessable == no), which is
 # treated as missing for that reading. PRIMARY_READINGS are the pre-specified tests; the rest are
-# exploratory (estimates and intervals only). The scene reading is revisited when the everyday-setting
-# scene categories are finalized, before the codebook is frozen.
+# exploratory (estimates and intervals only). Scene readings are exploratory (v0.9c, D16).
 BINARY_READINGS = {
     "formal_attire": ("formal_attire", "yes"),
     "smile_teeth": ("smile", "teeth_showing"),
     "political_symbol": ("political_symbol", "yes"),
-    "scene_leisure_or_sports": ("scene", "leisure_or_sports_venue"),
     # exploratory
+    "scene_leisure_or_sports": ("scene", "leisure_or_sports_venue"),
+    "scene_city_street": ("scene", "city_street_or_sidewalk"),
+    "scene_residential": ("scene", "residential_street_or_home_exterior"),
+    "scene_shop_cafe_market": ("scene", "shop_cafe_or_market"),
+    "scene_plaza_park": ("scene", "plaza_park_or_green_space"),
+    "scene_event_meeting": ("scene", "event_or_meeting_space"),
+    "scene_wall_or_facade": ("scene", "building_wall_or_facade"),
     "glasses": ("glasses", "yes"),
     "jewelry_or_watch": ("jewelry_or_watch", "yes"),
     "arms_crossed": ("arms_crossed", "yes"),
@@ -88,7 +102,7 @@ BINARY_READINGS = {
     "visible_distortion": ("visible_distortion", "yes"),
     "not_assessable": ("assessable", "no"),        # always defined; an image-quality measure
 }
-PRIMARY_READINGS = ["formal_attire", "smile_teeth", "political_symbol", "scene_leisure_or_sports"]
+PRIMARY_READINGS = ["formal_attire", "smile_teeth", "political_symbol"]
 
 # Fields that exist only after labeling (derived, never asked of an annotator).
 DERIVED = ["formal_attire"]
