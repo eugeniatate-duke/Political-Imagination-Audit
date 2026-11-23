@@ -6,7 +6,7 @@ externally time-stamped pre-registration (see D0). The first run's images (SD 1.
 generated and partly viewed before this was written; the second batch's engine and template are chosen by
 the D14 rules and filled in below before labeling starts.
 
-Fill in before labeling, then commit: **engine = ______ , template = ______ , seeds completed = ______**
+Fill in before labeling, then commit: **engine = sdxlfast (SDXL base 1.0, 768x1024, 20 steps) , template = N1 , seeds completed = ______** (D15)
 
 ## 1. Question and scope
 
@@ -34,15 +34,15 @@ property of the model and the prompt, not of any real group.
   settings and timestamp. Blank images (safety checker) are logged and excluded from labeling, never
   regenerated. An earlier 750-image run (SD 1.5, template T3n, bowling control) remains in the record as
   run A and is analyzed separately and labeled as such.
-- **Stop rule.** Seed-major generation; stop at 06:00 PST on 2026-11-23 or at 15 seeds; analysis uses
+- **Stop rule.** Seed-major generation; stop at 12:00 PST on 2026-11-23 (moved from 06:00, D15) or at 15 seeds; analysis uses
   complete seeds only (minimum 8).
 
 ## 3. Outcomes
 
 Defined in `docs/CODEBOOK.md` (frozen as v1.0 before labeling) and `scripts/codebook.py`. Annotators and
-the automated labeler see only the image. Four **primary** yes/no readings: formal attire (blazer or
-button-up shirt), smile with teeth showing, explicit political symbol, and one scene reading defined in the
-frozen codebook. All other readings (glasses, jewelry, arms crossed, emblems or text, held object, bare
+the automated labeler see only the image. Three **primary** yes/no readings: formal attire (blazer or
+button-up shirt), smile with teeth showing, and explicit political symbol (a flag counts anywhere in the
+image). Scene categories are exploratory (D16). All other readings (glasses, jewelry, arms crossed, emblems or text, held object, bare
 torso, visible distortion, not assessable) are **exploratory**.
 
 Automated labels are validated on 90 blind manual labels by one annotator. A reading enters the primary
@@ -114,3 +114,4 @@ sometimes show distortions or stock-photo styling; their rates are measured and 
 | Version | Date | Change |
 |---|---|---|
 | 1.0 | 2026-11-22 | First written version. Engine and template filled in after pilot5 (D14). |
+| 1.1 | 2026-11-22 | Engine and template filled in (D15). Primary family reduced from four readings to three; scene made exploratory (D16). |
