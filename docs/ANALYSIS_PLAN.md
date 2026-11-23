@@ -85,7 +85,7 @@ random effects on the logit scale (sd 0.5 to 1.0), base rate 0.2 to 0.5, 600 sim
 | 0.05 | 10 to 14% | 2 to 4% | 4 to 8% |
 | 0.10 | 30 to 45% | 14 to 22% | 18 to 29% |
 | 0.15 | 67 to 81% | 42 to 61% | 39 to 58% |
-| 0.20 | 91 to 97% | 71 to 89% | 67 to 84% |
+| 0.20 | 91 to 97% | 71 to 88% | 67 to 84% |
 | 0.30 | about 100% | 99 to 100% | 97 to 100% |
 
 False-positive rate at a true difference of 0 was at or below 4% for alpha 0.05. In plain terms: **effects
