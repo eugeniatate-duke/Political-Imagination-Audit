@@ -8,7 +8,7 @@
 
   // Set this once the full-resolution originals are published (for example as a GitHub Release).
   // The page then links each portrait to <base><image_id>.png. Leave empty to hide the link.
-  const FULLRES_BASE = "";
+  const FULLRES_BASE = "https://github.com/eugeniatate-duke/Political-Imagination-Audit/releases/download/v1.0/";
 
   const LABELS = {
     dem: "a Democrat", rep: "a Republican", rotary: "a Rotary Club member",
@@ -262,7 +262,7 @@
     const block = state.blocks.get(blockKey(e)) || {};
     renderStrip($("#v-strip"), block, e.id);
     $("#v-full").replaceChildren();
-    if (FULLRES_BASE) $("#v-full").append(el("a", { href: `${FULLRES_BASE}${e.id}.png`, text: "Open the full-resolution file" }));
+    if (FULLRES_BASE) $("#v-full").append(el("a", { href: `${FULLRES_BASE}${e.id}.png`, text: "Download the full-resolution file" }));
     $("#v-prev").disabled = v.i <= 0;
     $("#v-next").disabled = v.i >= v.list.length - 1;
   }
