@@ -1,0 +1,20 @@
+{
+  "formal_attire": true,
+  "smile_teeth": true,
+  "political_symbol": false,
+  "scene_leisure_or_sports": false,
+  "scene_city_street": false,
+  "scene_residential": true,
+  "scene_shop_cafe_market": false,
+  "scene_plaza_park": true,
+  "scene_event_meeting": false,
+  "scene_wall_or_facade": true,
+  "glasses": true,
+  "jewelry_or_watch": true,
+  "arms_crossed": false,
+  "emblem_or_text": false,
+  "held_object_any": false,
+  "bare_torso": false,
+  "visible_distortion": false,
+  "not_assessable": true
+}

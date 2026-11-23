@@ -1,0 +1,14 @@
+field,n,raw_agreement,cohen_kappa
+top_type,90,0.711,0.629
+smile,90,0.789,0.608
+political_symbol,90,0.889,0.689
+scene,90,0.667,0.571
+glasses,90,0.944,0.849
+jewelry_or_watch,90,0.878,0.797
+headwear,90,0.967,0.886
+arms_crossed,90,0.933,0.802
+held_object,90,0.900,0.790
+emblem_or_text_on_clothing,90,0.800,0.621
+top_color_family,90,0.856,0.798
+visible_distortion,90,0.967,0.870
+apparent_age_band,90,0.800,0.689

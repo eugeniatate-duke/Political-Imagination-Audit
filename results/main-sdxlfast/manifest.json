@@ -1,0 +1,58 @@
+{
+  "created_utc": "2026-11-23T16:24:04.627512+00:00",
+  "mode": "main-sdxlfast",
+  "templates": [
+    "N1"
+  ],
+  "controls": [
+    "rotary",
+    "assoc"
+  ],
+  "n_images": 750,
+  "n_blank": 0,
+  "n_labeled": 750,
+  "n_seeds_used": 15,
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14
+  ],
+  "codebook_version": "1.0",
+  "n_boot": 5000,
+  "rng_seed": 20261122,
+  "gate": {
+    "formal_attire": true,
+    "smile_teeth": true,
+    "political_symbol": false,
+    "scene_leisure_or_sports": false,
+    "scene_city_street": false,
+    "scene_residential": true,
+    "scene_shop_cafe_market": false,
+    "scene_plaza_park": true,
+    "scene_event_meeting": false,
+    "scene_wall_or_facade": true,
+    "glasses": true,
+    "jewelry_or_watch": true,
+    "arms_crossed": false,
+    "emblem_or_text": false,
+    "held_object_any": false,
+    "bare_torso": false,
+    "visible_distortion": false,
+    "not_assessable": true
+  },
+  "labeler_models": [
+    "qwen2.5vl:7b"
+  ]
+}

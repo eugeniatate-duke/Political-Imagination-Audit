@@ -1,0 +1,721 @@
+reading,by,cell,n_defined,n_total,rate,lo,hi
+formal_attire,label_key,assoc,137,150,0.5620,0.4784,0.6423
+formal_attire,label_key,dem,135,150,0.8593,0.7906,0.9080
+formal_attire,label_key,none,130,150,0.7000,0.6164,0.7721
+formal_attire,label_key,rep,133,150,0.8647,0.7962,0.9126
+formal_attire,label_key,rotary,134,150,0.7910,0.7146,0.8513
+formal_attire,label_key+group,assoc / asian,27,30,0.5926,0.4073,0.7549
+formal_attire,label_key+group,assoc / black,28,30,0.5357,0.3581,0.7047
+formal_attire,label_key+group,assoc / hispanic,27,30,0.6296,0.4423,0.7847
+formal_attire,label_key+group,assoc / none,27,30,0.4815,0.3074,0.6601
+formal_attire,label_key+group,assoc / white,28,30,0.5714,0.3907,0.7349
+formal_attire,label_key+group,dem / asian,25,30,0.8400,0.6535,0.9360
+formal_attire,label_key+group,dem / black,28,30,0.8571,0.6851,0.9430
+formal_attire,label_key+group,dem / hispanic,28,30,0.7857,0.6046,0.8979
+formal_attire,label_key+group,dem / none,27,30,0.8889,0.7194,0.9615
+formal_attire,label_key+group,dem / white,27,30,0.9259,0.7663,0.9794
+formal_attire,label_key+group,none / asian,23,30,0.6522,0.4489,0.8119
+formal_attire,label_key+group,none / black,28,30,0.6429,0.4583,0.7929
+formal_attire,label_key+group,none / hispanic,26,30,0.7692,0.5795,0.8897
+formal_attire,label_key+group,none / none,25,30,0.6800,0.4841,0.8280
+formal_attire,label_key+group,none / white,28,30,0.7500,0.5664,0.8732
+formal_attire,label_key+group,rep / asian,26,30,0.8462,0.6647,0.9385
+formal_attire,label_key+group,rep / black,27,30,0.8148,0.6330,0.9182
+formal_attire,label_key+group,rep / hispanic,28,30,0.8571,0.6851,0.9430
+formal_attire,label_key+group,rep / none,26,30,0.9231,0.7586,0.9786
+formal_attire,label_key+group,rep / white,26,30,0.8846,0.7102,0.9600
+formal_attire,label_key+group,rotary / asian,25,30,0.8800,0.7004,0.9583
+formal_attire,label_key+group,rotary / black,26,30,0.7692,0.5795,0.8897
+formal_attire,label_key+group,rotary / hispanic,27,30,0.6296,0.4423,0.7847
+formal_attire,label_key+group,rotary / none,28,30,0.8571,0.6851,0.9430
+formal_attire,label_key+group,rotary / white,28,30,0.8214,0.6441,0.9212
+formal_attire,label_key+gender,assoc / man,67,75,0.7313,0.6148,0.8228
+formal_attire,label_key+gender,assoc / woman,70,75,0.4000,0.2933,0.5171
+formal_attire,label_key+gender,dem / man,66,75,0.9394,0.8543,0.9762
+formal_attire,label_key+gender,dem / woman,69,75,0.7826,0.6718,0.8636
+formal_attire,label_key+gender,none / man,63,75,0.8254,0.7138,0.8996
+formal_attire,label_key+gender,none / woman,67,75,0.5821,0.4627,0.6926
+formal_attire,label_key+gender,rep / man,64,75,0.9375,0.8500,0.9754
+formal_attire,label_key+gender,rep / woman,69,75,0.7971,0.6878,0.8751
+formal_attire,label_key+gender,rotary / man,64,75,0.8594,0.7538,0.9242
+formal_attire,label_key+gender,rotary / woman,70,75,0.7286,0.6146,0.8188
+smile_teeth,label_key,assoc,137,150,0.8321,0.7607,0.8854
+smile_teeth,label_key,dem,135,150,0.8815,0.8161,0.9257
+smile_teeth,label_key,none,130,150,0.4308,0.3488,0.5167
+smile_teeth,label_key,rep,133,150,0.8045,0.7290,0.8630
+smile_teeth,label_key,rotary,134,150,0.9851,0.9472,0.9959
+smile_teeth,label_key+group,assoc / asian,27,30,0.8519,0.6752,0.9408
+smile_teeth,label_key+group,assoc / black,28,30,0.6786,0.4934,0.8207
+smile_teeth,label_key+group,assoc / hispanic,27,30,0.8889,0.7194,0.9615
+smile_teeth,label_key+group,assoc / none,27,30,0.8889,0.7194,0.9615
+smile_teeth,label_key+group,assoc / white,28,30,0.8571,0.6851,0.9430
+smile_teeth,label_key+group,dem / asian,25,30,0.9600,0.8046,0.9929
+smile_teeth,label_key+group,dem / black,28,30,0.6786,0.4934,0.8207
+smile_teeth,label_key+group,dem / hispanic,28,30,0.9643,0.8229,0.9937
+smile_teeth,label_key+group,dem / none,27,30,0.9259,0.7663,0.9794
+smile_teeth,label_key+group,dem / white,27,30,0.8889,0.7194,0.9615
+smile_teeth,label_key+group,none / asian,23,30,0.3913,0.2216,0.5921
+smile_teeth,label_key+group,none / black,28,30,0.2143,0.1021,0.3954
+smile_teeth,label_key+group,none / hispanic,26,30,0.7692,0.5795,0.8897
+smile_teeth,label_key+group,none / none,25,30,0.4400,0.2667,0.6293
+smile_teeth,label_key+group,none / white,28,30,0.3571,0.2071,0.5417
+smile_teeth,label_key+group,rep / asian,26,30,0.8462,0.6647,0.9385
+smile_teeth,label_key+group,rep / black,27,30,0.5926,0.4073,0.7549
+smile_teeth,label_key+group,rep / hispanic,28,30,0.8929,0.7280,0.9629
+smile_teeth,label_key+group,rep / none,26,30,0.7692,0.5795,0.8897
+smile_teeth,label_key+group,rep / white,26,30,0.9231,0.7586,0.9786
+smile_teeth,label_key+group,rotary / asian,25,30,0.9600,0.8046,0.9929
+smile_teeth,label_key+group,rotary / black,26,30,1.0000,0.8713,1.0000
+smile_teeth,label_key+group,rotary / hispanic,27,30,0.9630,0.8172,0.9934
+smile_teeth,label_key+group,rotary / none,28,30,1.0000,0.8794,1.0000
+smile_teeth,label_key+group,rotary / white,28,30,1.0000,0.8794,1.0000
+smile_teeth,label_key+gender,assoc / man,67,75,0.6567,0.5373,0.7591
+smile_teeth,label_key+gender,assoc / woman,70,75,1.0000,0.9480,1.0000
+smile_teeth,label_key+gender,dem / man,66,75,0.8333,0.7257,0.9043
+smile_teeth,label_key+gender,dem / woman,69,75,0.9275,0.8413,0.9687
+smile_teeth,label_key+gender,none / man,63,75,0.3175,0.2159,0.4400
+smile_teeth,label_key+gender,none / woman,67,75,0.5373,0.4192,0.6514
+smile_teeth,label_key+gender,rep / man,64,75,0.6562,0.5340,0.7608
+smile_teeth,label_key+gender,rep / woman,69,75,0.9420,0.8602,0.9772
+smile_teeth,label_key+gender,rotary / man,64,75,0.9688,0.8930,0.9914
+smile_teeth,label_key+gender,rotary / woman,70,75,1.0000,0.9480,1.0000
+political_symbol,label_key,assoc,137,150,0.0000,0.0000,0.0273
+political_symbol,label_key,dem,135,150,0.1185,0.0743,0.1839
+political_symbol,label_key,none,130,150,0.0000,0.0000,0.0287
+political_symbol,label_key,rep,133,150,0.1053,0.0637,0.1689
+political_symbol,label_key,rotary,134,150,0.0373,0.0160,0.0844
+political_symbol,label_key+group,assoc / asian,27,30,0.0000,0.0000,0.1246
+political_symbol,label_key+group,assoc / black,28,30,0.0000,0.0000,0.1206
+political_symbol,label_key+group,assoc / hispanic,27,30,0.0000,0.0000,0.1246
+political_symbol,label_key+group,assoc / none,27,30,0.0000,0.0000,0.1246
+political_symbol,label_key+group,assoc / white,28,30,0.0000,0.0000,0.1206
+political_symbol,label_key+group,dem / asian,25,30,0.1200,0.0417,0.2996
+political_symbol,label_key+group,dem / black,28,30,0.0714,0.0198,0.2265
+political_symbol,label_key+group,dem / hispanic,28,30,0.0714,0.0198,0.2265
+political_symbol,label_key+group,dem / none,27,30,0.1481,0.0592,0.3248
+political_symbol,label_key+group,dem / white,27,30,0.1852,0.0818,0.3670
+political_symbol,label_key+group,none / asian,23,30,0.0000,-0.0000,0.1431
+political_symbol,label_key+group,none / black,28,30,0.0000,0.0000,0.1206
+political_symbol,label_key+group,none / hispanic,26,30,0.0000,0.0000,0.1287
+political_symbol,label_key+group,none / none,25,30,0.0000,0.0000,0.1332
+political_symbol,label_key+group,none / white,28,30,0.0000,0.0000,0.1206
+political_symbol,label_key+group,rep / asian,26,30,0.1154,0.0400,0.2898
+political_symbol,label_key+group,rep / black,27,30,0.0741,0.0206,0.2337
+political_symbol,label_key+group,rep / hispanic,28,30,0.0714,0.0198,0.2265
+political_symbol,label_key+group,rep / none,26,30,0.1538,0.0615,0.3353
+political_symbol,label_key+group,rep / white,26,30,0.1154,0.0400,0.2898
+political_symbol,label_key+group,rotary / asian,25,30,0.0000,0.0000,0.1332
+political_symbol,label_key+group,rotary / black,26,30,0.0000,0.0000,0.1287
+political_symbol,label_key+group,rotary / hispanic,27,30,0.0000,0.0000,0.1246
+political_symbol,label_key+group,rotary / none,28,30,0.1071,0.0371,0.2720
+political_symbol,label_key+group,rotary / white,28,30,0.0714,0.0198,0.2265
+political_symbol,label_key+gender,assoc / man,67,75,0.0000,0.0000,0.0542
+political_symbol,label_key+gender,assoc / woman,70,75,0.0000,0.0000,0.0520
+political_symbol,label_key+gender,dem / man,66,75,0.1212,0.0627,0.2214
+political_symbol,label_key+gender,dem / woman,69,75,0.1159,0.0599,0.2125
+political_symbol,label_key+gender,none / man,63,75,0.0000,-0.0000,0.0575
+political_symbol,label_key+gender,none / woman,67,75,0.0000,0.0000,0.0542
+political_symbol,label_key+gender,rep / man,64,75,0.1250,0.0647,0.2277
+political_symbol,label_key+gender,rep / woman,69,75,0.0870,0.0405,0.1770
+political_symbol,label_key+gender,rotary / man,64,75,0.0156,0.0028,0.0833
+political_symbol,label_key+gender,rotary / woman,70,75,0.0571,0.0224,0.1379
+scene_leisure_or_sports,label_key,assoc,137,150,0.0000,0.0000,0.0273
+scene_leisure_or_sports,label_key,dem,135,150,0.0000,0.0000,0.0277
+scene_leisure_or_sports,label_key,none,130,150,0.0154,0.0042,0.0544
+scene_leisure_or_sports,label_key,rep,133,150,0.0075,0.0013,0.0414
+scene_leisure_or_sports,label_key,rotary,134,150,0.0075,0.0013,0.0411
+scene_leisure_or_sports,label_key+group,assoc / asian,27,30,0.0000,0.0000,0.1246
+scene_leisure_or_sports,label_key+group,assoc / black,28,30,0.0000,0.0000,0.1206
+scene_leisure_or_sports,label_key+group,assoc / hispanic,27,30,0.0000,0.0000,0.1246
+scene_leisure_or_sports,label_key+group,assoc / none,27,30,0.0000,0.0000,0.1246
+scene_leisure_or_sports,label_key+group,assoc / white,28,30,0.0000,0.0000,0.1206
+scene_leisure_or_sports,label_key+group,dem / asian,25,30,0.0000,0.0000,0.1332
+scene_leisure_or_sports,label_key+group,dem / black,28,30,0.0000,0.0000,0.1206
+scene_leisure_or_sports,label_key+group,dem / hispanic,28,30,0.0000,0.0000,0.1206
+scene_leisure_or_sports,label_key+group,dem / none,27,30,0.0000,0.0000,0.1246
+scene_leisure_or_sports,label_key+group,dem / white,27,30,0.0000,0.0000,0.1246
+scene_leisure_or_sports,label_key+group,none / asian,23,30,0.0000,-0.0000,0.1431
+scene_leisure_or_sports,label_key+group,none / black,28,30,0.0357,0.0063,0.1771
+scene_leisure_or_sports,label_key+group,none / hispanic,26,30,0.0000,0.0000,0.1287
+scene_leisure_or_sports,label_key+group,none / none,25,30,0.0000,0.0000,0.1332
+scene_leisure_or_sports,label_key+group,none / white,28,30,0.0357,0.0063,0.1771
+scene_leisure_or_sports,label_key+group,rep / asian,26,30,0.0000,0.0000,0.1287
+scene_leisure_or_sports,label_key+group,rep / black,27,30,0.0000,0.0000,0.1246
+scene_leisure_or_sports,label_key+group,rep / hispanic,28,30,0.0000,0.0000,0.1206
+scene_leisure_or_sports,label_key+group,rep / none,26,30,0.0385,0.0068,0.1889
+scene_leisure_or_sports,label_key+group,rep / white,26,30,0.0000,0.0000,0.1287
+scene_leisure_or_sports,label_key+group,rotary / asian,25,30,0.0000,0.0000,0.1332
+scene_leisure_or_sports,label_key+group,rotary / black,26,30,0.0000,0.0000,0.1287
+scene_leisure_or_sports,label_key+group,rotary / hispanic,27,30,0.0000,0.0000,0.1246
+scene_leisure_or_sports,label_key+group,rotary / none,28,30,0.0000,0.0000,0.1206
+scene_leisure_or_sports,label_key+group,rotary / white,28,30,0.0357,0.0063,0.1771
+scene_leisure_or_sports,label_key+gender,assoc / man,67,75,0.0000,0.0000,0.0542
+scene_leisure_or_sports,label_key+gender,assoc / woman,70,75,0.0000,0.0000,0.0520
+scene_leisure_or_sports,label_key+gender,dem / man,66,75,0.0000,0.0000,0.0550
+scene_leisure_or_sports,label_key+gender,dem / woman,69,75,0.0000,0.0000,0.0527
+scene_leisure_or_sports,label_key+gender,none / man,63,75,0.0159,0.0028,0.0846
+scene_leisure_or_sports,label_key+gender,none / woman,67,75,0.0149,0.0026,0.0798
+scene_leisure_or_sports,label_key+gender,rep / man,64,75,0.0156,0.0028,0.0833
+scene_leisure_or_sports,label_key+gender,rep / woman,69,75,0.0000,0.0000,0.0527
+scene_leisure_or_sports,label_key+gender,rotary / man,64,75,0.0000,0.0000,0.0566
+scene_leisure_or_sports,label_key+gender,rotary / woman,70,75,0.0143,0.0025,0.0766
+scene_city_street,label_key,assoc,137,150,0.5182,0.4352,0.6003
+scene_city_street,label_key,dem,135,150,0.6815,0.5988,0.7541
+scene_city_street,label_key,none,130,150,0.7308,0.6487,0.7996
+scene_city_street,label_key,rep,133,150,0.5940,0.5090,0.6737
+scene_city_street,label_key,rotary,134,150,0.3731,0.2959,0.4575
+scene_city_street,label_key+group,assoc / asian,27,30,0.6667,0.4782,0.8136
+scene_city_street,label_key+group,assoc / black,28,30,0.4286,0.2651,0.6093
+scene_city_street,label_key+group,assoc / hispanic,27,30,0.4444,0.2759,0.6269
+scene_city_street,label_key+group,assoc / none,27,30,0.5185,0.3399,0.6926
+scene_city_street,label_key+group,assoc / white,28,30,0.5357,0.3581,0.7047
+scene_city_street,label_key+group,dem / asian,25,30,0.5600,0.3707,0.7333
+scene_city_street,label_key+group,dem / black,28,30,0.7500,0.5664,0.8732
+scene_city_street,label_key+group,dem / hispanic,28,30,0.7857,0.6046,0.8979
+scene_city_street,label_key+group,dem / none,27,30,0.7407,0.5532,0.8683
+scene_city_street,label_key+group,dem / white,27,30,0.5556,0.3731,0.7241
+scene_city_street,label_key+group,none / asian,23,30,0.7391,0.5353,0.8745
+scene_city_street,label_key+group,none / black,28,30,0.7143,0.5294,0.8475
+scene_city_street,label_key+group,none / hispanic,26,30,0.8462,0.6647,0.9385
+scene_city_street,label_key+group,none / none,25,30,0.7200,0.5242,0.8572
+scene_city_street,label_key+group,none / white,28,30,0.6429,0.4583,0.7929
+scene_city_street,label_key+group,rep / asian,26,30,0.6538,0.4622,0.8059
+scene_city_street,label_key+group,rep / black,27,30,0.6667,0.4782,0.8136
+scene_city_street,label_key+group,rep / hispanic,28,30,0.6429,0.4583,0.7929
+scene_city_street,label_key+group,rep / none,26,30,0.5769,0.3895,0.7446
+scene_city_street,label_key+group,rep / white,26,30,0.4231,0.2554,0.6105
+scene_city_street,label_key+group,rotary / asian,25,30,0.4400,0.2667,0.6293
+scene_city_street,label_key+group,rotary / black,26,30,0.3462,0.1941,0.5378
+scene_city_street,label_key+group,rotary / hispanic,27,30,0.4074,0.2451,0.5927
+scene_city_street,label_key+group,rotary / none,28,30,0.3214,0.1793,0.5066
+scene_city_street,label_key+group,rotary / white,28,30,0.3571,0.2071,0.5417
+scene_city_street,label_key+gender,assoc / man,67,75,0.5821,0.4627,0.6926
+scene_city_street,label_key+gender,assoc / woman,70,75,0.4571,0.3457,0.5730
+scene_city_street,label_key+gender,dem / man,66,75,0.6970,0.5778,0.7945
+scene_city_street,label_key+gender,dem / woman,69,75,0.6667,0.5493,0.7665
+scene_city_street,label_key+gender,none / man,63,75,0.7302,0.6097,0.8242
+scene_city_street,label_key+gender,none / woman,67,75,0.7313,0.6148,0.8228
+scene_city_street,label_key+gender,rep / man,64,75,0.5625,0.4409,0.6771
+scene_city_street,label_key+gender,rep / woman,69,75,0.6232,0.5052,0.7282
+scene_city_street,label_key+gender,rotary / man,64,75,0.3750,0.2667,0.4975
+scene_city_street,label_key+gender,rotary / woman,70,75,0.3714,0.2677,0.4885
+scene_residential,label_key,assoc,137,150,0.4380,0.3577,0.5216
+scene_residential,label_key,dem,135,150,0.0148,0.0041,0.0524
+scene_residential,label_key,none,130,150,0.0000,0.0000,0.0287
+scene_residential,label_key,rep,133,150,0.0150,0.0041,0.0532
+scene_residential,label_key,rotary,134,150,0.0224,0.0076,0.0638
+scene_residential,label_key+group,assoc / asian,27,30,0.1852,0.0818,0.3670
+scene_residential,label_key+group,assoc / black,28,30,0.5357,0.3581,0.7047
+scene_residential,label_key+group,assoc / hispanic,27,30,0.5185,0.3399,0.6926
+scene_residential,label_key+group,assoc / none,27,30,0.4815,0.3074,0.6601
+scene_residential,label_key+group,assoc / white,28,30,0.4643,0.2953,0.6419
+scene_residential,label_key+group,dem / asian,25,30,0.0000,0.0000,0.1332
+scene_residential,label_key+group,dem / black,28,30,0.0357,0.0063,0.1771
+scene_residential,label_key+group,dem / hispanic,28,30,0.0000,0.0000,0.1206
+scene_residential,label_key+group,dem / none,27,30,0.0370,0.0066,0.1828
+scene_residential,label_key+group,dem / white,27,30,0.0000,0.0000,0.1246
+scene_residential,label_key+group,none / asian,23,30,0.0000,-0.0000,0.1431
+scene_residential,label_key+group,none / black,28,30,0.0000,0.0000,0.1206
+scene_residential,label_key+group,none / hispanic,26,30,0.0000,0.0000,0.1287
+scene_residential,label_key+group,none / none,25,30,0.0000,0.0000,0.1332
+scene_residential,label_key+group,none / white,28,30,0.0000,0.0000,0.1206
+scene_residential,label_key+group,rep / asian,26,30,0.0000,0.0000,0.1287
+scene_residential,label_key+group,rep / black,27,30,0.0000,0.0000,0.1246
+scene_residential,label_key+group,rep / hispanic,28,30,0.0357,0.0063,0.1771
+scene_residential,label_key+group,rep / none,26,30,0.0385,0.0068,0.1889
+scene_residential,label_key+group,rep / white,26,30,0.0000,0.0000,0.1287
+scene_residential,label_key+group,rotary / asian,25,30,0.0000,0.0000,0.1332
+scene_residential,label_key+group,rotary / black,26,30,0.0385,0.0068,0.1889
+scene_residential,label_key+group,rotary / hispanic,27,30,0.0741,0.0206,0.2337
+scene_residential,label_key+group,rotary / none,28,30,0.0000,0.0000,0.1206
+scene_residential,label_key+group,rotary / white,28,30,0.0000,0.0000,0.1206
+scene_residential,label_key+gender,assoc / man,67,75,0.3881,0.2805,0.5078
+scene_residential,label_key+gender,assoc / woman,70,75,0.4857,0.3725,0.6005
+scene_residential,label_key+gender,dem / man,66,75,0.0152,0.0027,0.0810
+scene_residential,label_key+gender,dem / woman,69,75,0.0145,0.0026,0.0776
+scene_residential,label_key+gender,none / man,63,75,0.0000,-0.0000,0.0575
+scene_residential,label_key+gender,none / woman,67,75,0.0000,0.0000,0.0542
+scene_residential,label_key+gender,rep / man,64,75,0.0312,0.0086,0.1070
+scene_residential,label_key+gender,rep / woman,69,75,0.0000,0.0000,0.0527
+scene_residential,label_key+gender,rotary / man,64,75,0.0312,0.0086,0.1070
+scene_residential,label_key+gender,rotary / woman,70,75,0.0143,0.0025,0.0766
+scene_shop_cafe_market,label_key,assoc,137,150,0.0146,0.0040,0.0517
+scene_shop_cafe_market,label_key,dem,135,150,0.0296,0.0116,0.0737
+scene_shop_cafe_market,label_key,none,130,150,0.0769,0.0423,0.1358
+scene_shop_cafe_market,label_key,rep,133,150,0.0752,0.0414,0.1329
+scene_shop_cafe_market,label_key,rotary,134,150,0.2388,0.1745,0.3176
+scene_shop_cafe_market,label_key+group,assoc / asian,27,30,0.0741,0.0206,0.2337
+scene_shop_cafe_market,label_key+group,assoc / black,28,30,0.0000,0.0000,0.1206
+scene_shop_cafe_market,label_key+group,assoc / hispanic,27,30,0.0000,0.0000,0.1246
+scene_shop_cafe_market,label_key+group,assoc / none,27,30,0.0000,0.0000,0.1246
+scene_shop_cafe_market,label_key+group,assoc / white,28,30,0.0000,0.0000,0.1206
+scene_shop_cafe_market,label_key+group,dem / asian,25,30,0.0800,0.0222,0.2497
+scene_shop_cafe_market,label_key+group,dem / black,28,30,0.0000,0.0000,0.1206
+scene_shop_cafe_market,label_key+group,dem / hispanic,28,30,0.0000,0.0000,0.1206
+scene_shop_cafe_market,label_key+group,dem / none,27,30,0.0000,0.0000,0.1246
+scene_shop_cafe_market,label_key+group,dem / white,27,30,0.0741,0.0206,0.2337
+scene_shop_cafe_market,label_key+group,none / asian,23,30,0.1739,0.0698,0.3714
+scene_shop_cafe_market,label_key+group,none / black,28,30,0.0357,0.0063,0.1771
+scene_shop_cafe_market,label_key+group,none / hispanic,26,30,0.0000,0.0000,0.1287
+scene_shop_cafe_market,label_key+group,none / none,25,30,0.1200,0.0417,0.2996
+scene_shop_cafe_market,label_key+group,none / white,28,30,0.0714,0.0198,0.2265
+scene_shop_cafe_market,label_key+group,rep / asian,26,30,0.0769,0.0214,0.2414
+scene_shop_cafe_market,label_key+group,rep / black,27,30,0.0741,0.0206,0.2337
+scene_shop_cafe_market,label_key+group,rep / hispanic,28,30,0.0714,0.0198,0.2265
+scene_shop_cafe_market,label_key+group,rep / none,26,30,0.0769,0.0214,0.2414
+scene_shop_cafe_market,label_key+group,rep / white,26,30,0.0769,0.0214,0.2414
+scene_shop_cafe_market,label_key+group,rotary / asian,25,30,0.3200,0.1720,0.5159
+scene_shop_cafe_market,label_key+group,rotary / black,26,30,0.2692,0.1370,0.4608
+scene_shop_cafe_market,label_key+group,rotary / hispanic,27,30,0.1852,0.0818,0.3670
+scene_shop_cafe_market,label_key+group,rotary / none,28,30,0.2500,0.1268,0.4336
+scene_shop_cafe_market,label_key+group,rotary / white,28,30,0.1786,0.0788,0.3559
+scene_shop_cafe_market,label_key+gender,assoc / man,67,75,0.0149,0.0026,0.0798
+scene_shop_cafe_market,label_key+gender,assoc / woman,70,75,0.0143,0.0025,0.0766
+scene_shop_cafe_market,label_key+gender,dem / man,66,75,0.0152,0.0027,0.0810
+scene_shop_cafe_market,label_key+gender,dem / woman,69,75,0.0435,0.0149,0.1202
+scene_shop_cafe_market,label_key+gender,none / man,63,75,0.0635,0.0250,0.1522
+scene_shop_cafe_market,label_key+gender,none / woman,67,75,0.0896,0.0417,0.1819
+scene_shop_cafe_market,label_key+gender,rep / man,64,75,0.0469,0.0161,0.1290
+scene_shop_cafe_market,label_key+gender,rep / woman,69,75,0.1014,0.0500,0.1949
+scene_shop_cafe_market,label_key+gender,rotary / man,64,75,0.2188,0.1350,0.3343
+scene_shop_cafe_market,label_key+gender,rotary / woman,70,75,0.2571,0.1693,0.3703
+scene_plaza_park,label_key,assoc,137,150,0.0000,0.0000,0.0273
+scene_plaza_park,label_key,dem,135,150,0.0444,0.0205,0.0936
+scene_plaza_park,label_key,none,130,150,0.0231,0.0079,0.0657
+scene_plaza_park,label_key,rep,133,150,0.0526,0.0257,0.1047
+scene_plaza_park,label_key,rotary,134,150,0.0896,0.0520,0.1500
+scene_plaza_park,label_key+group,assoc / asian,27,30,0.0000,0.0000,0.1246
+scene_plaza_park,label_key+group,assoc / black,28,30,0.0000,0.0000,0.1206
+scene_plaza_park,label_key+group,assoc / hispanic,27,30,0.0000,0.0000,0.1246
+scene_plaza_park,label_key+group,assoc / none,27,30,0.0000,0.0000,0.1246
+scene_plaza_park,label_key+group,assoc / white,28,30,0.0000,0.0000,0.1206
+scene_plaza_park,label_key+group,dem / asian,25,30,0.0800,0.0222,0.2497
+scene_plaza_park,label_key+group,dem / black,28,30,0.0357,0.0063,0.1771
+scene_plaza_park,label_key+group,dem / hispanic,28,30,0.0000,0.0000,0.1206
+scene_plaza_park,label_key+group,dem / none,27,30,0.0370,0.0066,0.1828
+scene_plaza_park,label_key+group,dem / white,27,30,0.0741,0.0206,0.2337
+scene_plaza_park,label_key+group,none / asian,23,30,0.0000,-0.0000,0.1431
+scene_plaza_park,label_key+group,none / black,28,30,0.0357,0.0063,0.1771
+scene_plaza_park,label_key+group,none / hispanic,26,30,0.0385,0.0068,0.1889
+scene_plaza_park,label_key+group,none / none,25,30,0.0000,0.0000,0.1332
+scene_plaza_park,label_key+group,none / white,28,30,0.0357,0.0063,0.1771
+scene_plaza_park,label_key+group,rep / asian,26,30,0.0769,0.0214,0.2414
+scene_plaza_park,label_key+group,rep / black,27,30,0.0370,0.0066,0.1828
+scene_plaza_park,label_key+group,rep / hispanic,28,30,0.0000,0.0000,0.1206
+scene_plaza_park,label_key+group,rep / none,26,30,0.0000,0.0000,0.1287
+scene_plaza_park,label_key+group,rep / white,26,30,0.1538,0.0615,0.3353
+scene_plaza_park,label_key+group,rotary / asian,25,30,0.0400,0.0071,0.1954
+scene_plaza_park,label_key+group,rotary / black,26,30,0.0385,0.0068,0.1889
+scene_plaza_park,label_key+group,rotary / hispanic,27,30,0.1111,0.0385,0.2806
+scene_plaza_park,label_key+group,rotary / none,28,30,0.1429,0.0570,0.3149
+scene_plaza_park,label_key+group,rotary / white,28,30,0.1071,0.0371,0.2720
+scene_plaza_park,label_key+gender,assoc / man,67,75,0.0000,0.0000,0.0542
+scene_plaza_park,label_key+gender,assoc / woman,70,75,0.0000,0.0000,0.0520
+scene_plaza_park,label_key+gender,dem / man,66,75,0.0455,0.0156,0.1253
+scene_plaza_park,label_key+gender,dem / woman,69,75,0.0435,0.0149,0.1202
+scene_plaza_park,label_key+gender,none / man,63,75,0.0476,0.0163,0.1309
+scene_plaza_park,label_key+gender,none / woman,67,75,0.0000,0.0000,0.0542
+scene_plaza_park,label_key+gender,rep / man,64,75,0.0469,0.0161,0.1290
+scene_plaza_park,label_key+gender,rep / woman,69,75,0.0580,0.0228,0.1398
+scene_plaza_park,label_key+gender,rotary / man,64,75,0.1562,0.0871,0.2643
+scene_plaza_park,label_key+gender,rotary / woman,70,75,0.0286,0.0079,0.0983
+scene_event_meeting,label_key,assoc,137,150,0.0000,0.0000,0.0273
+scene_event_meeting,label_key,dem,135,150,0.0444,0.0205,0.0936
+scene_event_meeting,label_key,none,130,150,0.0000,0.0000,0.0287
+scene_event_meeting,label_key,rep,133,150,0.0602,0.0308,0.1142
+scene_event_meeting,label_key,rotary,134,150,0.1045,0.0633,0.1677
+scene_event_meeting,label_key+group,assoc / asian,27,30,0.0000,0.0000,0.1246
+scene_event_meeting,label_key+group,assoc / black,28,30,0.0000,0.0000,0.1206
+scene_event_meeting,label_key+group,assoc / hispanic,27,30,0.0000,0.0000,0.1246
+scene_event_meeting,label_key+group,assoc / none,27,30,0.0000,0.0000,0.1246
+scene_event_meeting,label_key+group,assoc / white,28,30,0.0000,0.0000,0.1206
+scene_event_meeting,label_key+group,dem / asian,25,30,0.1200,0.0417,0.2996
+scene_event_meeting,label_key+group,dem / black,28,30,0.0000,0.0000,0.1206
+scene_event_meeting,label_key+group,dem / hispanic,28,30,0.0357,0.0063,0.1771
+scene_event_meeting,label_key+group,dem / none,27,30,0.0000,0.0000,0.1246
+scene_event_meeting,label_key+group,dem / white,27,30,0.0741,0.0206,0.2337
+scene_event_meeting,label_key+group,none / asian,23,30,0.0000,-0.0000,0.1431
+scene_event_meeting,label_key+group,none / black,28,30,0.0000,0.0000,0.1206
+scene_event_meeting,label_key+group,none / hispanic,26,30,0.0000,0.0000,0.1287
+scene_event_meeting,label_key+group,none / none,25,30,0.0000,0.0000,0.1332
+scene_event_meeting,label_key+group,none / white,28,30,0.0000,0.0000,0.1206
+scene_event_meeting,label_key+group,rep / asian,26,30,0.0000,0.0000,0.1287
+scene_event_meeting,label_key+group,rep / black,27,30,0.0000,0.0000,0.1246
+scene_event_meeting,label_key+group,rep / hispanic,28,30,0.0000,0.0000,0.1206
+scene_event_meeting,label_key+group,rep / none,26,30,0.1154,0.0400,0.2898
+scene_event_meeting,label_key+group,rep / white,26,30,0.1923,0.0851,0.3788
+scene_event_meeting,label_key+group,rotary / asian,25,30,0.0800,0.0222,0.2497
+scene_event_meeting,label_key+group,rotary / black,26,30,0.1154,0.0400,0.2898
+scene_event_meeting,label_key+group,rotary / hispanic,27,30,0.0370,0.0066,0.1828
+scene_event_meeting,label_key+group,rotary / none,28,30,0.1786,0.0788,0.3559
+scene_event_meeting,label_key+group,rotary / white,28,30,0.1071,0.0371,0.2720
+scene_event_meeting,label_key+gender,assoc / man,67,75,0.0000,0.0000,0.0542
+scene_event_meeting,label_key+gender,assoc / woman,70,75,0.0000,0.0000,0.0520
+scene_event_meeting,label_key+gender,dem / man,66,75,0.0606,0.0238,0.1457
+scene_event_meeting,label_key+gender,dem / woman,69,75,0.0290,0.0080,0.0997
+scene_event_meeting,label_key+gender,none / man,63,75,0.0000,-0.0000,0.0575
+scene_event_meeting,label_key+gender,none / woman,67,75,0.0000,0.0000,0.0542
+scene_event_meeting,label_key+gender,rep / man,64,75,0.0469,0.0161,0.1290
+scene_event_meeting,label_key+gender,rep / woman,69,75,0.0725,0.0313,0.1587
+scene_event_meeting,label_key+gender,rotary / man,64,75,0.0781,0.0338,0.1702
+scene_event_meeting,label_key+gender,rotary / woman,70,75,0.1286,0.0691,0.2266
+scene_wall_or_facade,label_key,assoc,137,150,0.0292,0.0114,0.0727
+scene_wall_or_facade,label_key,dem,135,150,0.1259,0.0801,0.1924
+scene_wall_or_facade,label_key,none,130,150,0.1077,0.0652,0.1727
+scene_wall_or_facade,label_key,rep,133,150,0.1504,0.0995,0.2209
+scene_wall_or_facade,label_key,rotary,134,150,0.1343,0.0867,0.2024
+scene_wall_or_facade,label_key+group,assoc / asian,27,30,0.0741,0.0206,0.2337
+scene_wall_or_facade,label_key+group,assoc / black,28,30,0.0357,0.0063,0.1771
+scene_wall_or_facade,label_key+group,assoc / hispanic,27,30,0.0370,0.0066,0.1828
+scene_wall_or_facade,label_key+group,assoc / none,27,30,0.0000,0.0000,0.1246
+scene_wall_or_facade,label_key+group,assoc / white,28,30,0.0000,0.0000,0.1206
+scene_wall_or_facade,label_key+group,dem / asian,25,30,0.1200,0.0417,0.2996
+scene_wall_or_facade,label_key+group,dem / black,28,30,0.1071,0.0371,0.2720
+scene_wall_or_facade,label_key+group,dem / hispanic,28,30,0.1429,0.0570,0.3149
+scene_wall_or_facade,label_key+group,dem / none,27,30,0.1111,0.0385,0.2806
+scene_wall_or_facade,label_key+group,dem / white,27,30,0.1481,0.0592,0.3248
+scene_wall_or_facade,label_key+group,none / asian,23,30,0.0870,0.0242,0.2680
+scene_wall_or_facade,label_key+group,none / black,28,30,0.1071,0.0371,0.2720
+scene_wall_or_facade,label_key+group,none / hispanic,26,30,0.1154,0.0400,0.2898
+scene_wall_or_facade,label_key+group,none / none,25,30,0.0800,0.0222,0.2497
+scene_wall_or_facade,label_key+group,none / white,28,30,0.1429,0.0570,0.3149
+scene_wall_or_facade,label_key+group,rep / asian,26,30,0.1154,0.0400,0.2898
+scene_wall_or_facade,label_key+group,rep / black,27,30,0.1481,0.0592,0.3248
+scene_wall_or_facade,label_key+group,rep / hispanic,28,30,0.2500,0.1268,0.4336
+scene_wall_or_facade,label_key+group,rep / none,26,30,0.1154,0.0400,0.2898
+scene_wall_or_facade,label_key+group,rep / white,26,30,0.1154,0.0400,0.2898
+scene_wall_or_facade,label_key+group,rotary / asian,25,30,0.1200,0.0417,0.2996
+scene_wall_or_facade,label_key+group,rotary / black,26,30,0.1538,0.0615,0.3353
+scene_wall_or_facade,label_key+group,rotary / hispanic,27,30,0.1481,0.0592,0.3248
+scene_wall_or_facade,label_key+group,rotary / none,28,30,0.0714,0.0198,0.2265
+scene_wall_or_facade,label_key+group,rotary / white,28,30,0.1786,0.0788,0.3559
+scene_wall_or_facade,label_key+gender,assoc / man,67,75,0.0149,0.0026,0.0798
+scene_wall_or_facade,label_key+gender,assoc / woman,70,75,0.0429,0.0147,0.1186
+scene_wall_or_facade,label_key+gender,dem / man,66,75,0.0909,0.0423,0.1845
+scene_wall_or_facade,label_key+gender,dem / woman,69,75,0.1594,0.0914,0.2633
+scene_wall_or_facade,label_key+gender,none / man,63,75,0.0952,0.0444,0.1926
+scene_wall_or_facade,label_key+gender,none / woman,67,75,0.1194,0.0618,0.2183
+scene_wall_or_facade,label_key+gender,rep / man,64,75,0.1875,0.1106,0.2997
+scene_wall_or_facade,label_key+gender,rep / woman,69,75,0.1159,0.0599,0.2125
+scene_wall_or_facade,label_key+gender,rotary / man,64,75,0.1094,0.0540,0.2090
+scene_wall_or_facade,label_key+gender,rotary / woman,70,75,0.1571,0.0901,0.2599
+glasses,label_key,assoc,137,150,0.1898,0.1329,0.2636
+glasses,label_key,dem,135,150,0.1259,0.0801,0.1924
+glasses,label_key,none,130,150,0.1923,0.1338,0.2685
+glasses,label_key,rep,133,150,0.0451,0.0208,0.0949
+glasses,label_key,rotary,134,150,0.2015,0.1423,0.2773
+glasses,label_key+group,assoc / asian,27,30,0.0370,0.0066,0.1828
+glasses,label_key+group,assoc / black,28,30,0.1786,0.0788,0.3559
+glasses,label_key+group,assoc / hispanic,27,30,0.0370,0.0066,0.1828
+glasses,label_key+group,assoc / none,27,30,0.5556,0.3731,0.7241
+glasses,label_key+group,assoc / white,28,30,0.1429,0.0570,0.3149
+glasses,label_key+group,dem / asian,25,30,0.1200,0.0417,0.2996
+glasses,label_key+group,dem / black,28,30,0.2143,0.1021,0.3954
+glasses,label_key+group,dem / hispanic,28,30,0.0714,0.0198,0.2265
+glasses,label_key+group,dem / none,27,30,0.1481,0.0592,0.3248
+glasses,label_key+group,dem / white,27,30,0.0741,0.0206,0.2337
+glasses,label_key+group,none / asian,23,30,0.0000,-0.0000,0.1431
+glasses,label_key+group,none / black,28,30,0.2500,0.1268,0.4336
+glasses,label_key+group,none / hispanic,26,30,0.0769,0.0214,0.2414
+glasses,label_key+group,none / none,25,30,0.3200,0.1720,0.5159
+glasses,label_key+group,none / white,28,30,0.2857,0.1525,0.4706
+glasses,label_key+group,rep / asian,26,30,0.0385,0.0068,0.1889
+glasses,label_key+group,rep / black,27,30,0.0370,0.0066,0.1828
+glasses,label_key+group,rep / hispanic,28,30,0.0357,0.0063,0.1771
+glasses,label_key+group,rep / none,26,30,0.0769,0.0214,0.2414
+glasses,label_key+group,rep / white,26,30,0.0385,0.0068,0.1889
+glasses,label_key+group,rotary / asian,25,30,0.1600,0.0640,0.3465
+glasses,label_key+group,rotary / black,26,30,0.3462,0.1941,0.5378
+glasses,label_key+group,rotary / hispanic,27,30,0.1111,0.0385,0.2806
+glasses,label_key+group,rotary / none,28,30,0.2143,0.1021,0.3954
+glasses,label_key+group,rotary / white,28,30,0.1786,0.0788,0.3559
+glasses,label_key+gender,assoc / man,67,75,0.2090,0.1288,0.3207
+glasses,label_key+gender,assoc / woman,70,75,0.1714,0.1009,0.2762
+glasses,label_key+gender,dem / man,66,75,0.1818,0.1072,0.2915
+glasses,label_key+gender,dem / woman,69,75,0.0725,0.0313,0.1587
+glasses,label_key+gender,none / man,63,75,0.2222,0.1372,0.3391
+glasses,label_key+gender,none / woman,67,75,0.1642,0.0942,0.2706
+glasses,label_key+gender,rep / man,64,75,0.0781,0.0338,0.1702
+glasses,label_key+gender,rep / woman,69,75,0.0145,0.0026,0.0776
+glasses,label_key+gender,rotary / man,64,75,0.3281,0.2257,0.4500
+glasses,label_key+gender,rotary / woman,70,75,0.0857,0.0399,0.1747
+jewelry_or_watch,label_key,assoc,136,150,0.6618,0.5788,0.7359
+jewelry_or_watch,label_key,dem,134,150,0.7313,0.6506,0.7992
+jewelry_or_watch,label_key,none,129,150,0.6434,0.5577,0.7208
+jewelry_or_watch,label_key,rep,133,150,0.6391,0.5546,0.7158
+jewelry_or_watch,label_key,rotary,134,150,0.7463,0.6664,0.8124
+jewelry_or_watch,label_key+group,assoc / asian,27,30,0.5185,0.3399,0.6926
+jewelry_or_watch,label_key+group,assoc / black,28,30,0.7143,0.5294,0.8475
+jewelry_or_watch,label_key+group,assoc / hispanic,27,30,0.7037,0.5152,0.8415
+jewelry_or_watch,label_key+group,assoc / none,26,30,0.6538,0.4622,0.8059
+jewelry_or_watch,label_key+group,assoc / white,28,30,0.7143,0.5294,0.8475
+jewelry_or_watch,label_key+group,dem / asian,25,30,0.6400,0.4452,0.7975
+jewelry_or_watch,label_key+group,dem / black,27,30,0.8519,0.6752,0.9408
+jewelry_or_watch,label_key+group,dem / hispanic,28,30,0.7857,0.6046,0.8979
+jewelry_or_watch,label_key+group,dem / none,27,30,0.7037,0.5152,0.8415
+jewelry_or_watch,label_key+group,dem / white,27,30,0.6667,0.4782,0.8136
+jewelry_or_watch,label_key+group,none / asian,23,30,0.5652,0.3681,0.7437
+jewelry_or_watch,label_key+group,none / black,28,30,0.7857,0.6046,0.8979
+jewelry_or_watch,label_key+group,none / hispanic,26,30,0.7308,0.5392,0.8630
+jewelry_or_watch,label_key+group,none / none,24,30,0.5833,0.3883,0.7553
+jewelry_or_watch,label_key+group,none / white,28,30,0.5357,0.3581,0.7047
+jewelry_or_watch,label_key+group,rep / asian,26,30,0.5385,0.3546,0.7124
+jewelry_or_watch,label_key+group,rep / black,27,30,0.6296,0.4423,0.7847
+jewelry_or_watch,label_key+group,rep / hispanic,28,30,0.7500,0.5664,0.8732
+jewelry_or_watch,label_key+group,rep / none,26,30,0.6154,0.4253,0.7757
+jewelry_or_watch,label_key+group,rep / white,26,30,0.6538,0.4622,0.8059
+jewelry_or_watch,label_key+group,rotary / asian,25,30,0.6000,0.4074,0.7660
+jewelry_or_watch,label_key+group,rotary / black,26,30,0.8462,0.6647,0.9385
+jewelry_or_watch,label_key+group,rotary / hispanic,27,30,0.8148,0.6330,0.9182
+jewelry_or_watch,label_key+group,rotary / none,28,30,0.7857,0.6046,0.8979
+jewelry_or_watch,label_key+group,rotary / white,28,30,0.6786,0.4934,0.8207
+jewelry_or_watch,label_key+gender,assoc / man,67,75,0.4627,0.3486,0.5808
+jewelry_or_watch,label_key+gender,assoc / woman,69,75,0.8551,0.7534,0.9193
+jewelry_or_watch,label_key+gender,dem / man,65,75,0.5231,0.4038,0.6398
+jewelry_or_watch,label_key+gender,dem / woman,69,75,0.9275,0.8413,0.9687
+jewelry_or_watch,label_key+gender,none / man,63,75,0.4603,0.3431,0.5821
+jewelry_or_watch,label_key+gender,none / woman,66,75,0.8182,0.7085,0.8928
+jewelry_or_watch,label_key+gender,rep / man,64,75,0.3125,0.2123,0.4339
+jewelry_or_watch,label_key+gender,rep / woman,69,75,0.9420,0.8602,0.9772
+jewelry_or_watch,label_key+gender,rotary / man,64,75,0.5156,0.3958,0.6337
+jewelry_or_watch,label_key+gender,rotary / woman,70,75,0.9571,0.8814,0.9853
+arms_crossed,label_key,assoc,137,150,0.1168,0.0732,0.1813
+arms_crossed,label_key,dem,135,150,0.0444,0.0205,0.0936
+arms_crossed,label_key,none,130,150,0.0385,0.0165,0.0869
+arms_crossed,label_key,rep,133,150,0.0301,0.0118,0.0748
+arms_crossed,label_key,rotary,134,150,0.1194,0.0748,0.1852
+arms_crossed,label_key+group,assoc / asian,27,30,0.1481,0.0592,0.3248
+arms_crossed,label_key+group,assoc / black,28,30,0.0714,0.0198,0.2265
+arms_crossed,label_key+group,assoc / hispanic,27,30,0.1111,0.0385,0.2806
+arms_crossed,label_key+group,assoc / none,27,30,0.1481,0.0592,0.3248
+arms_crossed,label_key+group,assoc / white,28,30,0.1071,0.0371,0.2720
+arms_crossed,label_key+group,dem / asian,25,30,0.0000,0.0000,0.1332
+arms_crossed,label_key+group,dem / black,28,30,0.0357,0.0063,0.1771
+arms_crossed,label_key+group,dem / hispanic,28,30,0.0000,0.0000,0.1206
+arms_crossed,label_key+group,dem / none,27,30,0.0741,0.0206,0.2337
+arms_crossed,label_key+group,dem / white,27,30,0.1111,0.0385,0.2806
+arms_crossed,label_key+group,none / asian,23,30,0.0870,0.0242,0.2680
+arms_crossed,label_key+group,none / black,28,30,0.0000,0.0000,0.1206
+arms_crossed,label_key+group,none / hispanic,26,30,0.0385,0.0068,0.1889
+arms_crossed,label_key+group,none / none,25,30,0.0000,0.0000,0.1332
+arms_crossed,label_key+group,none / white,28,30,0.0714,0.0198,0.2265
+arms_crossed,label_key+group,rep / asian,26,30,0.0769,0.0214,0.2414
+arms_crossed,label_key+group,rep / black,27,30,0.0000,0.0000,0.1246
+arms_crossed,label_key+group,rep / hispanic,28,30,0.0357,0.0063,0.1771
+arms_crossed,label_key+group,rep / none,26,30,0.0000,0.0000,0.1287
+arms_crossed,label_key+group,rep / white,26,30,0.0385,0.0068,0.1889
+arms_crossed,label_key+group,rotary / asian,25,30,0.2400,0.1150,0.4343
+arms_crossed,label_key+group,rotary / black,26,30,0.0385,0.0068,0.1889
+arms_crossed,label_key+group,rotary / hispanic,27,30,0.0741,0.0206,0.2337
+arms_crossed,label_key+group,rotary / none,28,30,0.1786,0.0788,0.3559
+arms_crossed,label_key+group,rotary / white,28,30,0.0714,0.0198,0.2265
+arms_crossed,label_key+gender,assoc / man,67,75,0.1045,0.0515,0.2003
+arms_crossed,label_key+gender,assoc / woman,70,75,0.1286,0.0691,0.2266
+arms_crossed,label_key+gender,dem / man,66,75,0.0303,0.0083,0.1039
+arms_crossed,label_key+gender,dem / woman,69,75,0.0580,0.0228,0.1398
+arms_crossed,label_key+gender,none / man,63,75,0.0317,0.0087,0.1086
+arms_crossed,label_key+gender,none / woman,67,75,0.0448,0.0153,0.1236
+arms_crossed,label_key+gender,rep / man,64,75,0.0469,0.0161,0.1290
+arms_crossed,label_key+gender,rep / woman,69,75,0.0145,0.0026,0.0776
+arms_crossed,label_key+gender,rotary / man,64,75,0.0781,0.0338,0.1702
+arms_crossed,label_key+gender,rotary / woman,70,75,0.1571,0.0901,0.2599
+emblem_or_text,label_key,assoc,137,150,0.3139,0.2421,0.3958
+emblem_or_text,label_key,dem,135,150,0.1926,0.1350,0.2672
+emblem_or_text,label_key,none,130,150,0.0462,0.0213,0.0970
+emblem_or_text,label_key,rep,133,150,0.2932,0.2225,0.3755
+emblem_or_text,label_key,rotary,134,150,0.7463,0.6664,0.8124
+emblem_or_text,label_key+group,assoc / asian,27,30,0.2222,0.1061,0.4076
+emblem_or_text,label_key+group,assoc / black,28,30,0.2857,0.1525,0.4706
+emblem_or_text,label_key+group,assoc / hispanic,27,30,0.2963,0.1585,0.4848
+emblem_or_text,label_key+group,assoc / none,27,30,0.3704,0.2153,0.5577
+emblem_or_text,label_key+group,assoc / white,28,30,0.3929,0.2357,0.5759
+emblem_or_text,label_key+group,dem / asian,25,30,0.1200,0.0417,0.2996
+emblem_or_text,label_key+group,dem / black,28,30,0.2143,0.1021,0.3954
+emblem_or_text,label_key+group,dem / hispanic,28,30,0.1429,0.0570,0.3149
+emblem_or_text,label_key+group,dem / none,27,30,0.2222,0.1061,0.4076
+emblem_or_text,label_key+group,dem / white,27,30,0.2593,0.1317,0.4468
+emblem_or_text,label_key+group,none / asian,23,30,0.0435,0.0077,0.2099
+emblem_or_text,label_key+group,none / black,28,30,0.1071,0.0371,0.2720
+emblem_or_text,label_key+group,none / hispanic,26,30,0.0769,0.0214,0.2414
+emblem_or_text,label_key+group,none / none,25,30,0.0000,0.0000,0.1332
+emblem_or_text,label_key+group,none / white,28,30,0.0000,0.0000,0.1206
+emblem_or_text,label_key+group,rep / asian,26,30,0.2692,0.1370,0.4608
+emblem_or_text,label_key+group,rep / black,27,30,0.2963,0.1585,0.4848
+emblem_or_text,label_key+group,rep / hispanic,28,30,0.2500,0.1268,0.4336
+emblem_or_text,label_key+group,rep / none,26,30,0.3077,0.1650,0.4999
+emblem_or_text,label_key+group,rep / white,26,30,0.3462,0.1941,0.5378
+emblem_or_text,label_key+group,rotary / asian,25,30,0.6400,0.4452,0.7975
+emblem_or_text,label_key+group,rotary / black,26,30,0.7308,0.5392,0.8630
+emblem_or_text,label_key+group,rotary / hispanic,27,30,0.6667,0.4782,0.8136
+emblem_or_text,label_key+group,rotary / none,28,30,0.8929,0.7280,0.9629
+emblem_or_text,label_key+group,rotary / white,28,30,0.7857,0.6046,0.8979
+emblem_or_text,label_key+gender,assoc / man,67,75,0.4030,0.2939,0.5226
+emblem_or_text,label_key+gender,assoc / woman,70,75,0.2286,0.1459,0.3395
+emblem_or_text,label_key+gender,dem / man,66,75,0.1818,0.1072,0.2915
+emblem_or_text,label_key+gender,dem / woman,69,75,0.2029,0.1249,0.3122
+emblem_or_text,label_key+gender,none / man,63,75,0.0159,0.0028,0.0846
+emblem_or_text,label_key+gender,none / woman,67,75,0.0746,0.0323,0.1631
+emblem_or_text,label_key+gender,rep / man,64,75,0.2969,0.1990,0.4177
+emblem_or_text,label_key+gender,rep / woman,69,75,0.2899,0.1962,0.4057
+emblem_or_text,label_key+gender,rotary / man,64,75,0.7969,0.6829,0.8773
+emblem_or_text,label_key+gender,rotary / woman,70,75,0.7000,0.5846,0.7946
+held_object_any,label_key,assoc,133,150,0.0000,-0.0000,0.0281
+held_object_any,label_key,dem,129,150,0.0000,0.0000,0.0289
+held_object_any,label_key,none,128,150,0.0078,0.0014,0.0429
+held_object_any,label_key,rep,129,150,0.0078,0.0014,0.0426
+held_object_any,label_key,rotary,127,150,0.0079,0.0014,0.0433
+held_object_any,label_key+group,assoc / asian,26,30,0.0000,0.0000,0.1287
+held_object_any,label_key+group,assoc / black,28,30,0.0000,0.0000,0.1206
+held_object_any,label_key+group,assoc / hispanic,26,30,0.0000,0.0000,0.1287
+held_object_any,label_key+group,assoc / none,26,30,0.0000,0.0000,0.1287
+held_object_any,label_key+group,assoc / white,27,30,0.0000,0.0000,0.1246
+held_object_any,label_key+group,dem / asian,25,30,0.0000,0.0000,0.1332
+held_object_any,label_key+group,dem / black,27,30,0.0000,0.0000,0.1246
+held_object_any,label_key+group,dem / hispanic,27,30,0.0000,0.0000,0.1246
+held_object_any,label_key+group,dem / none,27,30,0.0000,0.0000,0.1246
+held_object_any,label_key+group,dem / white,23,30,0.0000,-0.0000,0.1431
+held_object_any,label_key+group,none / asian,23,30,0.0435,0.0077,0.2099
+held_object_any,label_key+group,none / black,27,30,0.0000,0.0000,0.1246
+held_object_any,label_key+group,none / hispanic,26,30,0.0000,0.0000,0.1287
+held_object_any,label_key+group,none / none,24,30,0.0000,0.0000,0.1380
+held_object_any,label_key+group,none / white,28,30,0.0000,0.0000,0.1206
+held_object_any,label_key+group,rep / asian,26,30,0.0000,0.0000,0.1287
+held_object_any,label_key+group,rep / black,26,30,0.0000,0.0000,0.1287
+held_object_any,label_key+group,rep / hispanic,27,30,0.0000,0.0000,0.1246
+held_object_any,label_key+group,rep / none,25,30,0.0000,0.0000,0.1332
+held_object_any,label_key+group,rep / white,25,30,0.0400,0.0071,0.1954
+held_object_any,label_key+group,rotary / asian,25,30,0.0000,0.0000,0.1332
+held_object_any,label_key+group,rotary / black,26,30,0.0000,0.0000,0.1287
+held_object_any,label_key+group,rotary / hispanic,24,30,0.0000,0.0000,0.1380
+held_object_any,label_key+group,rotary / none,27,30,0.0370,0.0066,0.1828
+held_object_any,label_key+group,rotary / white,25,30,0.0000,0.0000,0.1332
+held_object_any,label_key+gender,assoc / man,65,75,0.0000,0.0000,0.0558
+held_object_any,label_key+gender,assoc / woman,68,75,0.0000,0.0000,0.0535
+held_object_any,label_key+gender,dem / man,64,75,0.0000,0.0000,0.0566
+held_object_any,label_key+gender,dem / woman,65,75,0.0000,0.0000,0.0558
+held_object_any,label_key+gender,none / man,61,75,0.0000,0.0000,0.0592
+held_object_any,label_key+gender,none / woman,67,75,0.0149,0.0026,0.0798
+held_object_any,label_key+gender,rep / man,61,75,0.0164,0.0029,0.0872
+held_object_any,label_key+gender,rep / woman,68,75,0.0000,0.0000,0.0535
+held_object_any,label_key+gender,rotary / man,61,75,0.0000,0.0000,0.0592
+held_object_any,label_key+gender,rotary / woman,66,75,0.0152,0.0027,0.0810
+bare_torso,label_key,assoc,137,150,0.0000,0.0000,0.0273
+bare_torso,label_key,dem,135,150,0.0000,0.0000,0.0277
+bare_torso,label_key,none,130,150,0.0000,0.0000,0.0287
+bare_torso,label_key,rep,133,150,0.0000,-0.0000,0.0281
+bare_torso,label_key,rotary,134,150,0.0000,0.0000,0.0279
+bare_torso,label_key+group,assoc / asian,27,30,0.0000,0.0000,0.1246
+bare_torso,label_key+group,assoc / black,28,30,0.0000,0.0000,0.1206
+bare_torso,label_key+group,assoc / hispanic,27,30,0.0000,0.0000,0.1246
+bare_torso,label_key+group,assoc / none,27,30,0.0000,0.0000,0.1246
+bare_torso,label_key+group,assoc / white,28,30,0.0000,0.0000,0.1206
+bare_torso,label_key+group,dem / asian,25,30,0.0000,0.0000,0.1332
+bare_torso,label_key+group,dem / black,28,30,0.0000,0.0000,0.1206
+bare_torso,label_key+group,dem / hispanic,28,30,0.0000,0.0000,0.1206
+bare_torso,label_key+group,dem / none,27,30,0.0000,0.0000,0.1246
+bare_torso,label_key+group,dem / white,27,30,0.0000,0.0000,0.1246
+bare_torso,label_key+group,none / asian,23,30,0.0000,-0.0000,0.1431
+bare_torso,label_key+group,none / black,28,30,0.0000,0.0000,0.1206
+bare_torso,label_key+group,none / hispanic,26,30,0.0000,0.0000,0.1287
+bare_torso,label_key+group,none / none,25,30,0.0000,0.0000,0.1332
+bare_torso,label_key+group,none / white,28,30,0.0000,0.0000,0.1206
+bare_torso,label_key+group,rep / asian,26,30,0.0000,0.0000,0.1287
+bare_torso,label_key+group,rep / black,27,30,0.0000,0.0000,0.1246
+bare_torso,label_key+group,rep / hispanic,28,30,0.0000,0.0000,0.1206
+bare_torso,label_key+group,rep / none,26,30,0.0000,0.0000,0.1287
+bare_torso,label_key+group,rep / white,26,30,0.0000,0.0000,0.1287
+bare_torso,label_key+group,rotary / asian,25,30,0.0000,0.0000,0.1332
+bare_torso,label_key+group,rotary / black,26,30,0.0000,0.0000,0.1287
+bare_torso,label_key+group,rotary / hispanic,27,30,0.0000,0.0000,0.1246
+bare_torso,label_key+group,rotary / none,28,30,0.0000,0.0000,0.1206
+bare_torso,label_key+group,rotary / white,28,30,0.0000,0.0000,0.1206
+bare_torso,label_key+gender,assoc / man,67,75,0.0000,0.0000,0.0542
+bare_torso,label_key+gender,assoc / woman,70,75,0.0000,0.0000,0.0520
+bare_torso,label_key+gender,dem / man,66,75,0.0000,0.0000,0.0550
+bare_torso,label_key+gender,dem / woman,69,75,0.0000,0.0000,0.0527
+bare_torso,label_key+gender,none / man,63,75,0.0000,-0.0000,0.0575
+bare_torso,label_key+gender,none / woman,67,75,0.0000,0.0000,0.0542
+bare_torso,label_key+gender,rep / man,64,75,0.0000,0.0000,0.0566
+bare_torso,label_key+gender,rep / woman,69,75,0.0000,0.0000,0.0527
+bare_torso,label_key+gender,rotary / man,64,75,0.0000,0.0000,0.0566
+bare_torso,label_key+gender,rotary / woman,70,75,0.0000,0.0000,0.0520
+visible_distortion,label_key,assoc,137,150,0.0000,0.0000,0.0273
+visible_distortion,label_key,dem,135,150,0.0000,0.0000,0.0277
+visible_distortion,label_key,none,130,150,0.0000,0.0000,0.0287
+visible_distortion,label_key,rep,133,150,0.0000,-0.0000,0.0281
+visible_distortion,label_key,rotary,134,150,0.0000,0.0000,0.0279
+visible_distortion,label_key+group,assoc / asian,27,30,0.0000,0.0000,0.1246
+visible_distortion,label_key+group,assoc / black,28,30,0.0000,0.0000,0.1206
+visible_distortion,label_key+group,assoc / hispanic,27,30,0.0000,0.0000,0.1246
+visible_distortion,label_key+group,assoc / none,27,30,0.0000,0.0000,0.1246
+visible_distortion,label_key+group,assoc / white,28,30,0.0000,0.0000,0.1206
+visible_distortion,label_key+group,dem / asian,25,30,0.0000,0.0000,0.1332
+visible_distortion,label_key+group,dem / black,28,30,0.0000,0.0000,0.1206
+visible_distortion,label_key+group,dem / hispanic,28,30,0.0000,0.0000,0.1206
+visible_distortion,label_key+group,dem / none,27,30,0.0000,0.0000,0.1246
+visible_distortion,label_key+group,dem / white,27,30,0.0000,0.0000,0.1246
+visible_distortion,label_key+group,none / asian,23,30,0.0000,-0.0000,0.1431
+visible_distortion,label_key+group,none / black,28,30,0.0000,0.0000,0.1206
+visible_distortion,label_key+group,none / hispanic,26,30,0.0000,0.0000,0.1287
+visible_distortion,label_key+group,none / none,25,30,0.0000,0.0000,0.1332
+visible_distortion,label_key+group,none / white,28,30,0.0000,0.0000,0.1206
+visible_distortion,label_key+group,rep / asian,26,30,0.0000,0.0000,0.1287
+visible_distortion,label_key+group,rep / black,27,30,0.0000,0.0000,0.1246
+visible_distortion,label_key+group,rep / hispanic,28,30,0.0000,0.0000,0.1206
+visible_distortion,label_key+group,rep / none,26,30,0.0000,0.0000,0.1287
+visible_distortion,label_key+group,rep / white,26,30,0.0000,0.0000,0.1287
+visible_distortion,label_key+group,rotary / asian,25,30,0.0000,0.0000,0.1332
+visible_distortion,label_key+group,rotary / black,26,30,0.0000,0.0000,0.1287
+visible_distortion,label_key+group,rotary / hispanic,27,30,0.0000,0.0000,0.1246
+visible_distortion,label_key+group,rotary / none,28,30,0.0000,0.0000,0.1206
+visible_distortion,label_key+group,rotary / white,28,30,0.0000,0.0000,0.1206
+visible_distortion,label_key+gender,assoc / man,67,75,0.0000,0.0000,0.0542
+visible_distortion,label_key+gender,assoc / woman,70,75,0.0000,0.0000,0.0520
+visible_distortion,label_key+gender,dem / man,66,75,0.0000,0.0000,0.0550
+visible_distortion,label_key+gender,dem / woman,69,75,0.0000,0.0000,0.0527
+visible_distortion,label_key+gender,none / man,63,75,0.0000,-0.0000,0.0575
+visible_distortion,label_key+gender,none / woman,67,75,0.0000,0.0000,0.0542
+visible_distortion,label_key+gender,rep / man,64,75,0.0000,0.0000,0.0566
+visible_distortion,label_key+gender,rep / woman,69,75,0.0000,0.0000,0.0527
+visible_distortion,label_key+gender,rotary / man,64,75,0.0000,0.0000,0.0566
+visible_distortion,label_key+gender,rotary / woman,70,75,0.0000,0.0000,0.0520
+not_assessable,label_key,assoc,150,150,0.0867,0.0513,0.1426
+not_assessable,label_key,dem,150,150,0.1000,0.0615,0.1584
+not_assessable,label_key,none,150,150,0.1333,0.0880,0.1970
+not_assessable,label_key,rep,150,150,0.1133,0.0720,0.1740
+not_assessable,label_key,rotary,150,150,0.1067,0.0667,0.1662
+not_assessable,label_key+group,assoc / asian,30,30,0.1000,0.0346,0.2562
+not_assessable,label_key+group,assoc / black,30,30,0.0667,0.0185,0.2132
+not_assessable,label_key+group,assoc / hispanic,30,30,0.1000,0.0346,0.2562
+not_assessable,label_key+group,assoc / none,30,30,0.1000,0.0346,0.2562
+not_assessable,label_key+group,assoc / white,30,30,0.0667,0.0185,0.2132
+not_assessable,label_key+group,dem / asian,30,30,0.1667,0.0734,0.3356
+not_assessable,label_key+group,dem / black,30,30,0.0667,0.0185,0.2132
+not_assessable,label_key+group,dem / hispanic,30,30,0.0667,0.0185,0.2132
+not_assessable,label_key+group,dem / none,30,30,0.1000,0.0346,0.2562
+not_assessable,label_key+group,dem / white,30,30,0.1000,0.0346,0.2562
+not_assessable,label_key+group,none / asian,30,30,0.2333,0.1179,0.4093
+not_assessable,label_key+group,none / black,30,30,0.0667,0.0185,0.2132
+not_assessable,label_key+group,none / hispanic,30,30,0.1333,0.0531,0.2968
+not_assessable,label_key+group,none / none,30,30,0.1667,0.0734,0.3356
+not_assessable,label_key+group,none / white,30,30,0.0667,0.0185,0.2132
+not_assessable,label_key+group,rep / asian,30,30,0.1333,0.0531,0.2968
+not_assessable,label_key+group,rep / black,30,30,0.1000,0.0346,0.2562
+not_assessable,label_key+group,rep / hispanic,30,30,0.0667,0.0185,0.2132
+not_assessable,label_key+group,rep / none,30,30,0.1333,0.0531,0.2968
+not_assessable,label_key+group,rep / white,30,30,0.1333,0.0531,0.2968
+not_assessable,label_key+group,rotary / asian,30,30,0.1667,0.0734,0.3356
+not_assessable,label_key+group,rotary / black,30,30,0.1333,0.0531,0.2968
+not_assessable,label_key+group,rotary / hispanic,30,30,0.1000,0.0346,0.2562
+not_assessable,label_key+group,rotary / none,30,30,0.0667,0.0185,0.2132
+not_assessable,label_key+group,rotary / white,30,30,0.0667,0.0185,0.2132
+not_assessable,label_key+gender,assoc / man,75,75,0.1067,0.0550,0.1966
+not_assessable,label_key+gender,assoc / woman,75,75,0.0667,0.0288,0.1468
+not_assessable,label_key+gender,dem / man,75,75,0.1200,0.0644,0.2126
+not_assessable,label_key+gender,dem / woman,75,75,0.0800,0.0372,0.1637
+not_assessable,label_key+gender,none / man,75,75,0.1600,0.0940,0.2592
+not_assessable,label_key+gender,none / woman,75,75,0.1067,0.0550,0.1966
+not_assessable,label_key+gender,rep / man,75,75,0.1467,0.0839,0.2438
+not_assessable,label_key+gender,rep / woman,75,75,0.0800,0.0372,0.1637
+not_assessable,label_key+gender,rotary / man,75,75,0.1467,0.0839,0.2438
+not_assessable,label_key+gender,rotary / woman,75,75,0.0667,0.0288,0.1468

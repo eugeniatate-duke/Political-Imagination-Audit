@@ -1,0 +1,19 @@
+contrast,reading,rd,lo,hi,blocks_used,blocks_total
+dem minus rep,tone_dark,0.2143,0.0667,0.3929,26,30
+dem minus rep,tone_light,-0.4643,-0.5769,-0.3333,26,30
+dem minus rep,tone_score,0.6786,0.4333,0.9615,26,30
+rotary minus assoc,tone_dark,-0.7500,-0.9000,-0.5714,26,30
+rotary minus assoc,tone_light,0.4643,0.2857,0.6538,26,30
+rotary minus assoc,tone_score,-1.2143,-1.4643,-0.9333,26,30
+dem minus none,tone_dark,0.1154,-0.1000,0.3462,24,30
+dem minus none,tone_light,0.3462,0.1429,0.5385,24,30
+dem minus none,tone_score,-0.2308,-0.5000,0.0769,24,30
+rep minus none,tone_dark,-0.1250,-0.2500,0.0000,23,30
+rep minus none,tone_light,0.7917,0.5909,0.9583,23,30
+rep minus none,tone_score,-0.9167,-1.1154,-0.7273,23,30
+rotary minus none,tone_dark,-0.1154,-0.2308,0.0000,24,30
+rotary minus none,tone_light,0.5000,0.3077,0.6818,24,30
+rotary minus none,tone_score,-0.6154,-0.8333,-0.4091,24,30
+assoc minus none,tone_dark,0.6923,0.5000,0.8846,24,30
+assoc minus none,tone_light,0.0000,-0.1538,0.1430,24,30
+assoc minus none,tone_score,0.6923,0.4091,0.9231,24,30

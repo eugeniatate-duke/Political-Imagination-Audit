@@ -1,0 +1,11 @@
+label,reading,n_defined,n_total,share,lo,hi
+assoc,tone_light,26,30,0.0769,0.0214,0.2414
+assoc,tone_dark,26,30,0.7308,0.5392,0.8630
+dem,tone_light,27,30,0.4444,0.2759,0.6269
+dem,tone_dark,27,30,0.1852,0.0818,0.3670
+none,tone_light,25,30,0.0800,0.0222,0.2497
+none,tone_dark,25,30,0.1200,0.0417,0.2996
+rep,tone_light,26,30,0.8846,0.7102,0.9600
+rep,tone_dark,26,30,0.0000,0.0000,0.1287
+rotary,tone_light,26,30,0.5385,0.3546,0.7124
+rotary,tone_dark,26,30,0.0000,0.0000,0.1287
