@@ -1,8 +1,13 @@
 .venv/
 __pycache__/
-outputs/
 .DS_Store
-outputs/*/images/
-outputs/validation/images/
 *.log
-__pycache__/
+# generated images and contact sheets stay local (full-resolution files are hosted separately)
+outputs/*/images/
+outputs/*/contact_sheet_*.png
+outputs/validation/images/
+outputs/skintone*/images/
+# in progress: remove these two lines after the replication is generated, labeled and final
+outputs/replicate-sdxlfast/
+outputs/skintone_replicate/
+outputs/benchmark/*.png

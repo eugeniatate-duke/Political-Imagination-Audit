@@ -1,0 +1,15 @@
+dimension,value,reading,DR_rd,lo,hi,blocks_used
+group,asian,formal_attire,0.0000,-0.1500,0.1538,25
+group,asian,smile_teeth,0.1154,0.0000,0.2333,25
+group,black,formal_attire,0.0357,-0.0769,0.1667,27
+group,black,smile_teeth,0.0714,-0.1000,0.2333,27
+group,hispanic,formal_attire,-0.0714,-0.1786,0.0000,28
+group,hispanic,smile_teeth,0.0714,0.0000,0.1786,28
+group,none,formal_attire,0.0000,-0.1071,0.1071,26
+group,none,smile_teeth,0.1429,0.0000,0.2917,26
+group,white,formal_attire,0.0385,0.0000,0.1250,26
+group,white,smile_teeth,-0.0385,-0.1250,0.0000,26
+gender,man,formal_attire,0.0143,0.0000,0.0462,64
+gender,man,smile_teeth,0.1571,0.0571,0.2667,64
+gender,woman,formal_attire,-0.0238,-0.1333,0.0857,68
+gender,woman,smile_teeth,-0.0238,-0.1000,0.0429,68

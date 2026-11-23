@@ -31,7 +31,7 @@ HTML = r"""<!doctype html>
 <style>
  body{font-family:system-ui,sans-serif;margin:0;display:flex;height:100vh;background:#f6f6f4;color:#222}
  #left{flex:0 0 560px;padding:12px;display:flex;flex-direction:column;align-items:center}
- #left img{width:512px;height:512px;border:1px solid #bbb;background:#fff}
+ #left img{max-width:100%;max-height:92vh;width:auto;height:auto;object-fit:contain;border:1px solid #bbb;background:#fff}
  #right{flex:1;padding:12px 18px;overflow:auto}
  .field{padding:6px 8px;margin:3px 0;border-radius:6px;border:1px solid transparent}
  .field.cur{background:#fff;border-color:#2a6fdb}

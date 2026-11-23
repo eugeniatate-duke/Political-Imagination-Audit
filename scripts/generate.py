@@ -197,6 +197,7 @@ NEGATIVE_V2 = ("painting, illustration, drawing, sketch, vintage, antique, sepia
 NEGATIVES = {"NEGATIVE_STYLE": NEGATIVE_STYLE, "NEGATIVE_V2": NEGATIVE_V2}
 
 MAIN_N_SEEDS = 15
+REPLICATE_FIRST_SEED = 15      # replicate mode uses seeds 15.. so they never overlap the main run (0..14)
 PILOT_SEEDS_NONE = list(range(1000, 1006))   # 6 seeds
 PILOT_SEEDS_LABEL = list(range(1000, 1003))  # 3 seeds, Democrat/Republican, T1 only (first pilot)
 PILOT3_SEEDS = list(range(1000, 1003))
@@ -287,6 +288,16 @@ def build_plan(mode, templates=None, n_seeds=MAIN_N_SEEDS):
                 for group in SPECIFIED_GROUPS:
                     for gender in GENDERS:
                         rows.append(make_row(mode, template, group, gender, "none", seed))
+    elif mode == "replicate":
+        # Added 2026-11-23 (docs/DEVIATIONS.md D18): new seeds only, for the no-group arm only, to test whether
+        # the no-group skin-tone pattern seen in the main run (seeds 0-14) repeats. Same engine, template and
+        # negative prompt as main. Seeds are REPLICATE_FIRST_SEED .. REPLICATE_FIRST_SEED + n_seeds - 1.
+        _check_templates(templates, mode)
+        for seed in range(REPLICATE_FIRST_SEED, REPLICATE_FIRST_SEED + n_seeds):
+            for template in templates:
+                for gender in GENDERS:
+                    for label_key in labels_for(template):
+                        rows.append(make_row(mode, template, "none", gender, label_key, seed))
     else:  # main
         _check_templates(templates, mode)
         for seed in range(n_seeds):
@@ -550,7 +561,7 @@ def main():
     sub = ap.add_subparsers(dest="cmd", required=True)
     for name in ("plan", "run", "sheet"):
         p = sub.add_parser(name)
-        p.add_argument("mode", choices=["pilot", "pilot2", "pilot3", "pilot4", "pilot5", "main"])
+        p.add_argument("mode", choices=["pilot", "pilot2", "pilot3", "pilot4", "pilot5", "main", "replicate"])
         p.add_argument("--engine", default="sd15", choices=sorted(ENGINES),
                        help="sd15 (default, 512x512), sd15tall (512x768), sdxl (832x1216, 30 steps) or sdxlfast (768x1024, 20 steps)")
         p.add_argument("--out", default="outputs", help="output root folder (default: outputs)")

@@ -1,0 +1,303 @@
+{
+ "run": "main-sdxlfast",
+ "codebook_version": "1.0",
+ "n_images": 750,
+ "n_labeled": 750,
+ "n_seeds": 15,
+ "controls": [
+  "rotary",
+  "assoc"
+ ],
+ "rows": [
+  {
+   "reading": "formal_attire",
+   "name": "Formal attire (blazer or button-up)",
+   "dr": {
+    "rd": -0.0102,
+    "lo": -0.0745,
+    "hi": 0.0582,
+    "p_holm": 0.8438
+   },
+   "ctrl": {
+    "rd": 0.227,
+    "lo": 0.1302,
+    "hi": 0.3371
+   },
+   "status": "main test"
+  },
+  {
+   "reading": "smile_teeth",
+   "name": "Smile with teeth showing",
+   "dr": {
+    "rd": 0.0643,
+    "lo": -0.0071,
+    "hi": 0.1267,
+    "p_holm": 0.2773
+   },
+   "ctrl": {
+    "rd": 0.1269,
+    "lo": 0.0857,
+    "hi": 0.1702
+   },
+   "status": "main test"
+  },
+  {
+   "reading": "political_symbol",
+   "name": "Political symbol (flag, sign, button)",
+   "dr": {
+    "rd": 0.0143,
+    "lo": -0.02,
+    "hi": 0.0643,
+    "p_holm": null
+   },
+   "ctrl": {
+    "rd": 0.0357,
+    "lo": 0.0071,
+    "hi": 0.0714
+   },
+   "status": "main test, but the automated labels did not agree well enough with the manual ones: estimate only"
+  }
+ ],
+ "exploratory": [
+  {
+   "reading": "scene_leisure_or_sports",
+   "name": "Setting: leisure or sports venue",
+   "dr": {
+    "rd": -0.0071,
+    "lo": -0.0231,
+    "hi": 0.0,
+    "p_holm": null
+   },
+   "ctrl": {
+    "rd": 0.0102,
+    "lo": 0.0,
+    "hi": 0.033
+   },
+   "status": "exploratory: estimate only"
+  },
+  {
+   "reading": "scene_city_street",
+   "name": "Setting: city street or sidewalk",
+   "dr": {
+    "rd": 0.0908,
+    "lo": 0.0143,
+    "hi": 0.1876,
+    "p_holm": null
+   },
+   "ctrl": {
+    "rd": -0.1299,
+    "lo": -0.298,
+    "hi": 0.0405
+   },
+   "status": "exploratory: estimate only"
+  },
+  {
+   "reading": "scene_residential",
+   "name": "Setting: residential street or home",
+   "dr": {
+    "rd": 0.0,
+    "lo": -0.02,
+    "hi": 0.0214,
+    "p_holm": null
+   },
+   "ctrl": {
+    "rd": -0.4456,
+    "lo": -0.6212,
+    "hi": -0.2798
+   },
+   "status": "exploratory: estimate only"
+  },
+  {
+   "reading": "scene_shop_cafe_market",
+   "name": "Setting: shop, cafe or market",
+   "dr": {
+    "rd": -0.0551,
+    "lo": -0.1473,
+    "hi": 0.0,
+    "p_holm": null
+   },
+   "ctrl": {
+    "rd": 0.2502,
+    "lo": 0.1024,
+    "hi": 0.4098
+   },
+   "status": "exploratory: estimate only"
+  },
+  {
+   "reading": "scene_plaza_park",
+   "name": "Setting: plaza, park or green space",
+   "dr": {
+    "rd": -0.0071,
+    "lo": -0.0429,
+    "hi": 0.0214,
+    "p_holm": null
+   },
+   "ctrl": {
+    "rd": 0.0841,
+    "lo": 0.0262,
+    "hi": 0.1627
+   },
+   "status": "exploratory: estimate only"
+  },
+  {
+   "reading": "scene_event_meeting",
+   "name": "Setting: event or meeting space",
+   "dr": {
+    "rd": -0.0143,
+    "lo": -0.0583,
+    "hi": 0.0286,
+    "p_holm": null
+   },
+   "ctrl": {
+    "rd": 0.1063,
+    "lo": 0.0333,
+    "hi": 0.2052
+   },
+   "status": "exploratory: estimate only"
+  },
+  {
+   "reading": "scene_wall_or_facade",
+   "name": "Setting: wall or building front",
+   "dr": {
+    "rd": -0.0214,
+    "lo": -0.0538,
+    "hi": 0.0,
+    "p_holm": null
+   },
+   "ctrl": {
+    "rd": 0.0937,
+    "lo": 0.0085,
+    "hi": 0.2015
+   },
+   "status": "exploratory: estimate only"
+  },
+  {
+   "reading": "glasses",
+   "name": "Glasses",
+   "dr": {
+    "rd": 0.0643,
+    "lo": 0.0267,
+    "hi": 0.1,
+    "p_holm": null
+   },
+   "ctrl": {
+    "rd": 0.004,
+    "lo": -0.073,
+    "hi": 0.0806
+   },
+   "status": "exploratory: estimate only"
+  },
+  {
+   "reading": "jewelry_or_watch",
+   "name": "Jewelry or watch",
+   "dr": {
+    "rd": 0.0832,
+    "lo": 0.0238,
+    "hi": 0.1449,
+    "p_holm": null
+   },
+   "ctrl": {
+    "rd": 0.0743,
+    "lo": -0.0435,
+    "hi": 0.1923
+   },
+   "status": "exploratory: estimate only"
+  },
+  {
+   "reading": "arms_crossed",
+   "name": "Arms crossed",
+   "dr": {
+    "rd": 0.0102,
+    "lo": -0.0154,
+    "hi": 0.039,
+    "p_holm": null
+   },
+   "ctrl": {
+    "rd": 0.02,
+    "lo": -0.024,
+    "hi": 0.0647
+   },
+   "status": "exploratory: estimate only"
+  },
+  {
+   "reading": "emblem_or_text",
+   "name": "Emblem, badge or text on clothing",
+   "dr": {
+    "rd": -0.0969,
+    "lo": -0.1755,
+    "hi": -0.0165,
+    "p_holm": null
+   },
+   "ctrl": {
+    "rd": 0.44,
+    "lo": 0.3177,
+    "hi": 0.5625
+   },
+   "status": "exploratory: estimate only"
+  },
+  {
+   "reading": "held_object_any",
+   "name": "Holding an object",
+   "dr": {
+    "rd": 0.0,
+    "lo": 0.0,
+    "hi": 0.0,
+    "p_holm": null
+   },
+   "ctrl": {
+    "rd": 0.0079,
+    "lo": 0.0,
+    "hi": 0.0256
+   },
+   "status": "exploratory: estimate only"
+  },
+  {
+   "reading": "bare_torso",
+   "name": "Bare torso",
+   "dr": {
+    "rd": 0.0,
+    "lo": 0.0,
+    "hi": 0.0,
+    "p_holm": null
+   },
+   "ctrl": {
+    "rd": 0.0,
+    "lo": 0.0,
+    "hi": 0.0
+   },
+   "status": "exploratory: estimate only"
+  },
+  {
+   "reading": "visible_distortion",
+   "name": "Visible distortion",
+   "dr": {
+    "rd": 0.0,
+    "lo": 0.0,
+    "hi": 0.0,
+    "p_holm": null
+   },
+   "ctrl": {
+    "rd": 0.0,
+    "lo": 0.0,
+    "hi": 0.0
+   },
+   "status": "exploratory: estimate only"
+  },
+  {
+   "reading": "not_assessable",
+   "name": "Not assessable (illustration or no clear person)",
+   "dr": {
+    "rd": -0.0133,
+    "lo": -0.04,
+    "hi": 0.0,
+    "p_holm": null
+   },
+   "ctrl": {
+    "rd": 0.02,
+    "lo": -0.0133,
+    "hi": 0.0533
+   },
+   "status": "exploratory: estimate only"
+  }
+ ]
+}

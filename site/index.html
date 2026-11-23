@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Political Imagination Audit</title>
+<meta name="description" content="What does an image generator draw when you ask for a Democrat or a Republican and change nothing else? A controlled audit with every sample shown.">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#why">Skip to the explanation</a>
+
+<header class="top">
+  <a class="top-title" href="#top">Political Imagination Audit</a>
+  <nav aria-label="Sections">
+    <a href="#wall-dem">The walls</a>
+    <a href="#why">Why</a>
+    <a href="#compare">Compare</a>
+    <a href="#results">Results</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#method">Method</a>
+    <a href="#limits">Limits</a>
+  </nav>
+</header>
+
+<main id="top">
+  <div id="load-error" class="load-error" role="alert" hidden></div>
+
+  <section class="intro">
+    <h1>What does an image generator draw when you ask for a Democrat?</h1>
+    <p class="lede">We asked one image generator for a person who is “a Democrat”, then for a person who is
+      “a Republican”, and changed nothing else. Every person below is synthetic. None of them is a real
+      Democrat, a real Republican, or a photograph of anyone.</p>
+  </section>
+
+  <section class="wall" id="wall-dem" aria-labelledby="wall-dem-title" data-label="dem">
+    <div class="placard">
+      <h2 id="wall-dem-title">a Democrat</h2>
+      <p class="placard-prompt"></p>
+      <p class="placard-note"></p>
+    </div>
+    <div class="wall-grid" role="list"></div>
+  </section>
+
+  <section class="wall" id="wall-rep" aria-labelledby="wall-rep-title" data-label="rep">
+    <div class="placard">
+      <h2 id="wall-rep-title">a Republican</h2>
+      <p class="placard-prompt"></p>
+      <p class="placard-note"></p>
+    </div>
+    <div class="wall-grid" role="list"></div>
+  </section>
+
+  <section class="band" id="changed">
+    <div class="band-label"><h2>What changed between the walls</h2></div>
+    <div class="band-body prose">
+      <p>One word. Every portrait on the second wall has a partner on the first: the same random seed, the
+        same stated group and gender, the same setting words. Only “Democrat” became “Republican”.</p>
+      <p>That is why the walls look alike. A seed fixes most of the layout, so the question is what the
+        label moves, and by how much. We also ran two non-political labels and a no-label version, so a
+        political difference can be judged against the difference any swapped label makes.</p>
+      <p>Nothing here was picked for effect: each wall shows <span data-stat="wall_note">every image for that label</span>.
+        Click any portrait to see all versions of the same seed.</p>
+    </div>
+  </section>
+
+  <section class="band" id="why">
+    <div class="band-label"><h2>Why would a model draw a party?</h2>
+      <p class="side-note">Three statements, each marked as established, open, or ours.</p></div>
+    <div class="band-body prose">
+      <div class="claim">
+        <p class="status status-established">Established, about people</p>
+        <h3>People carry a picture of partisans in their heads</h3>
+        <p>In a national survey of 1,000 Americans, people guessed that about a third of Democrats are gay,
+          lesbian or bisexual (about 6% are) and that nearly four in ten Republicans earn over $250,000 a year
+          (about 2% do). Another set of surveys asked people for the words that come to mind for each party’s
+          supporters: Democrats were “liberal”, “caring” and “minorities”; Republicans were “conservative”,
+          “rich” and “white”. People who think of partisans mostly in terms of traits are more polarized.</p>
+        <p class="cite">Ahler &amp; Sood 2018; Rothschild et al. 2018. Both are surveys of people, not of AI.</p>
+      </div>
+      <div class="claim">
+        <p class="status status-established">Established, about related models</p>
+        <h3>Image models trained on web pictures pick up human-like associations</h3>
+        <p>Researchers found human-like biases in image representations learned from web photos, and found
+          that Stable Diffusion produces stereotyped people from ordinary prompts, including prompts with no
+          mention of race or gender. Adding wording to counter the stereotype often did not remove the pattern.</p>
+        <p class="cite">Steed &amp; Caliskan 2021; Bianchi et al. 2023. Neither tested political identity.</p>
+      </div>
+      <div class="claim">
+        <p class="status status-open">Open, and what this project asks</p>
+        <h3>Does one changed word move the picture?</h3>
+        <p>None of those four papers tests whether a text-to-image model draws a person differently when only
+          the party label changes. This audit does, for one model and one prompt setup. If the portraits differ,
+          that is an association in one model’s output. It does not show why the model does it, and it says
+          nothing about what real partisans look like.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="compare">
+    <div class="band-label"><h2>Compare matched portraits</h2>
+      <p class="side-note">Same seed, group and gender. Only the label differs.</p></div>
+    <div class="band-body">
+      <form class="controls" id="compare-controls" aria-label="Choose which portraits to compare">
+        <label>Seed <select id="c-seed"></select></label>
+        <label>Stated group <select id="c-group"></select></label>
+        <label>Stated gender <select id="c-gender"></select></label>
+        <label>Left side <select id="c-left"></select></label>
+        <label>Right side <select id="c-right"></select></label>
+      </form>
+      <div class="wipe-wrap">
+        <div class="wipe" id="wipe" style="--x:50%">
+          <img id="wipe-right" alt="">
+          <img id="wipe-left" alt="">
+          <div class="wipe-line" aria-hidden="true"><span></span></div>
+          <p class="wipe-empty" id="wipe-empty" hidden></p>
+          <input id="wipe-range" type="range" min="0" max="100" value="50" aria-label="Move the divider to reveal the left or right portrait">
+        </div>
+        <p class="wipe-caption" id="wipe-caption"></p>
+      </div>
+      <h3 class="strip-title">All versions of this block</h3>
+      <div class="strip" id="strip"></div>
+      <details class="prompts">
+        <summary>Exact prompts for this block</summary>
+        <dl id="prompt-list"></dl>
+      </details>
+    </div>
+  </section>
+
+  <section class="band" id="results">
+    <div class="band-label"><h2>Results</h2>
+      <p class="side-note">Differences in how often a visible feature appears, with 95% intervals.</p></div>
+    <div class="band-body">
+      <div id="results-body"></div>
+    </div>
+  </section>
+
+  <section class="band" id="gallery">
+    <div class="band-label"><h2>Every image</h2>
+      <p class="side-note">The full audit record, including excluded images.</p></div>
+    <div class="band-body wide">
+      <form class="filters" id="gallery-filters" aria-label="Filter the gallery">
+        <fieldset>
+          <legend>Label in the prompt</legend>
+          <div class="chips" id="g-labels"></div>
+        </fieldset>
+        <label>Stated group <select id="g-group"></select></label>
+        <label>Stated gender <select id="g-gender"></select></label>
+        <label>Seed <select id="g-seed"></select></label>
+      </form>
+      <p class="count" id="g-count" aria-live="polite"></p>
+      <div class="gallery" id="g-grid" role="list"></div>
+      <p><button type="button" class="more" id="g-more" hidden>Show more</button></p>
+    </div>
+  </section>
+
+  <section class="band" id="method">
+    <div class="band-label"><h2>How it was run</h2></div>
+    <div class="band-body prose">
+      <p>The model is <span data-stat="engine">an image generator</span>, run locally. For each seed, stated
+        group and stated gender, the same prompt was generated five times, once per label: a Democrat, a
+        Republican, a Rotary Club member, a neighborhood association member, and no label. The two
+        non-political labels are the yardstick: they show how much any swapped group label changes a
+        portrait.</p>
+      <p><span data-stat="method_counts">The run</span> The prompt states group and gender in words; what a
+        portrait looks like is a separate matter and is never treated as a fact about the person.</p>
+      <p>A local vision-language model read each portrait using a written codebook, seeing only the image. One
+        person labeled 90 portraits blind to check it, and a feature only enters the main tests if the model
+        agrees with those labels well enough. Differences are risk differences averaged over seeds, with
+        intervals from resampling seeds and a permutation test on Democrat minus Republican, corrected across
+        the main features that passed that check.</p>
+      <p>The plan, every change to it, and the codebook are in the repository. They are a dated analysis plan
+        with a change log, not a time-stamped pre-registration.</p>
+    </div>
+  </section>
+
+  <section class="band" id="limits">
+    <div class="band-label"><h2>What this cannot tell you</h2></div>
+    <div class="band-body prose">
+      <ul class="plain">
+        <li>These people are synthetic. They are not samples of real Democrats or Republicans.</li>
+        <li>One model, one prompt wording and one negative prompt. Another model, or another phrasing, may behave differently.</li>
+        <li>A seed fixes most of a picture, so only large differences can be detected with this number of seeds. “No difference found” is not “no bias”.</li>
+        <li>A difference would show an association in the output. It would not show why, and training data is only one of several possible causes.</li>
+        <li>The negative prompt removes illustrations and bare torsos, so the model’s full range is not shown.</li>
+        <li>The stated group word also changes the background, for example market stalls or murals, which is a finding about the model that this audit only touches.</li>
+        <li>One annotator checked the automated labels. Agreement shows that two readers align, not that either is right.</li>
+        <li>A difference is not automatically harm, and identical pictures are not automatically fair. What matters depends on who uses the pictures and for what.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="band" id="refs">
+    <div class="band-label"><h2>References</h2></div>
+    <div class="band-body prose refs">
+      <p>Ahler, D. J., &amp; Sood, G. (2018). The parties in our heads: Misperceptions about party composition and their consequences. <i>The Journal of Politics, 80</i>(3). <a href="https://doi.org/10.1086/697253">doi:10.1086/697253</a></p>
+      <p>Bianchi, F., Kalluri, P., Durmus, E., Ladhak, F., Cheng, M., Nozza, D., Hashimoto, T., Jurafsky, D., Zou, J., &amp; Caliskan, A. (2023). Easily accessible text-to-image generation amplifies demographic stereotypes at large scale. <i>FAccT ’23</i>. <a href="https://doi.org/10.1145/3593013.3594095">doi:10.1145/3593013.3594095</a></p>
+      <p>Rothschild, J. E., Howat, A. J., Shafranek, R. M., &amp; Busby, E. C. (2018). Pigeonholing partisans: Stereotypes of party supporters and partisan polarization. <i>Political Behavior</i>. <a href="https://doi.org/10.1007/s11109-018-9457-5">doi:10.1007/s11109-018-9457-5</a></p>
+      <p>Steed, R., &amp; Caliskan, A. (2021). Image representations learned with unsupervised pre-training contain human-like biases. <i>FAccT ’21</i>. <a href="https://doi.org/10.1145/3442188.3445932">doi:10.1145/3442188.3445932</a></p>
+    </div>
+  </section>
+
+  <section class="band" id="reproduce">
+    <div class="band-label"><h2>Reproduce it</h2></div>
+    <div class="band-body prose">
+      <p>The code, prompts, seeds, model snapshot, codebook, labels and analysis scripts are in the repository,
+        with setup steps and a map of every folder in its README. Every image on this page links back to its
+        record in <code>data/images.json</code>.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <p>All people shown are synthetic images made by an AI model. A course project for explainable and responsible AI.</p>
+</footer>
+
+<dialog id="viewer" aria-label="Portrait details">
+  <div class="viewer-grid">
+    <figure class="viewer-fig"><img id="v-img" alt=""></figure>
+    <div class="viewer-side">
+      <h3 id="v-title"></h3>
+      <dl class="meta" id="v-meta"></dl>
+      <p class="v-prompt" id="v-prompt"></p>
+      <div class="v-labels" id="v-labels"></div>
+      <h4>Other versions of this block</h4>
+      <div class="strip small" id="v-strip"></div>
+      <p class="viewer-actions">
+        <button type="button" id="v-prev">Previous</button>
+        <button type="button" id="v-next">Next</button>
+        <button type="button" id="v-close">Close</button>
+      </p>
+      <p class="v-full" id="v-full"></p>
+    </div>
+  </div>
+</dialog>
+
+<script src="app.js"></script>
+</body>
+</html>

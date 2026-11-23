@@ -1,0 +1,55 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Skin tone labeling (blind)</title>
+<style>
+ body{font-family:system-ui,sans-serif;margin:0;display:flex;height:100vh;background:#f6f6f4;color:#222}
+ #left{flex:0 0 55%;padding:12px;display:flex;flex-direction:column;align-items:center}
+ #left img{max-width:100%;max-height:92vh;width:auto;height:auto;object-fit:contain;border:1px solid #bbb;background:#fff}
+ #right{flex:1;padding:14px 20px;overflow:auto}
+ .opt{display:block;margin:8px 0;padding:10px 12px;border:1px solid #bbb;border-radius:6px;cursor:pointer;background:#fafafa}
+ .opt.sel{background:#2a6fdb;color:#fff;border-color:#2a6fdb}
+ .def{font-size:13px;opacity:.85;margin-top:2px}
+ button{margin:4px 6px 4px 0;padding:6px 10px}
+</style></head><body>
+<div id="left"><div id="bar" style="margin:6px 0;font-size:14px"></div><img id="img" alt="image to label"></div>
+<div id="right">
+ <h3 style="margin-top:0">Apparent skin tone of the person in the picture</h3>
+ <p style="font-size:13px">Judge the skin you can see (face, neck, hands) as it looks in this picture. Do not guess ethnicity, nationality or politics.
+ Compensate for shadow and color cast as well as you can. Use <b>unclear</b> if the skin is not visible enough, the image is an illustration or no single person is clear.
+ Decide by your first impression, then move on. Do not compare with earlier images.</p>
+ <div class="opt" data-v="light"><b>1  light</b><div class="def">Among the lightest skin tones you see in everyday photos.</div></div>
+ <div class="opt" data-v="medium"><b>2  medium</b><div class="def">In the middle: light-brown, olive, tan, or in between light and dark.</div></div>
+ <div class="opt" data-v="dark"><b>3  dark</b><div class="def">Among the darkest skin tones you see in everyday photos.</div></div>
+ <div class="opt" data-v="unclear"><b>u  unclear</b><div class="def">Cannot judge, or not a clear photo of one person.</div></div>
+ <p style="font-size:13px;color:#555">Keys: 1 2 3 u pick and advance. Backspace clears. [ previous, ] next. Progress saves in this browser.</p>
+ <button id="dl">Download CSV</button> <button id="jump">Go to first unlabeled</button>
+ <div id="status" style="font-size:13px;margin-top:8px"></div>
+</div>
+<script>
+const IDS = ["s001", "s002", "s003", "s004", "s005", "s006", "s007", "s008", "s009", "s010", "s011", "s012", "s013", "s014", "s015", "s016", "s017", "s018", "s019", "s020", "s021", "s022", "s023", "s024", "s025", "s026", "s027", "s028", "s029", "s030", "s031", "s032", "s033", "s034", "s035", "s036", "s037", "s038", "s039", "s040", "s041", "s042", "s043", "s044", "s045", "s046", "s047", "s048", "s049", "s050", "s051", "s052", "s053", "s054", "s055", "s056", "s057", "s058", "s059", "s060", "s061", "s062", "s063", "s064", "s065", "s066", "s067", "s068", "s069", "s070", "s071", "s072", "s073", "s074", "s075", "s076", "s077", "s078", "s079", "s080", "s081", "s082", "s083", "s084", "s085", "s086", "s087", "s088", "s089", "s090", "s091", "s092", "s093", "s094", "s095", "s096", "s097", "s098", "s099", "s100", "s101", "s102", "s103", "s104", "s105", "s106", "s107", "s108", "s109", "s110", "s111", "s112", "s113", "s114", "s115", "s116", "s117", "s118", "s119", "s120", "s121", "s122", "s123", "s124", "s125", "s126", "s127", "s128", "s129", "s130", "s131", "s132", "s133", "s134", "s135", "s136", "s137", "s138", "s139", "s140", "s141", "s142", "s143", "s144", "s145", "s146", "s147", "s148", "s149", "s150", "s151", "s152", "s153", "s154", "s155", "s156", "s157", "s158", "s159", "s160", "s161", "s162", "s163", "s164", "s165", "s166", "s167", "s168", "s169", "s170"];
+const KEY = "skintone_labels_v1";
+let labels = {}; try{ labels = JSON.parse(localStorage.getItem(KEY)||"{}"); }catch(e){}
+let i = 0;
+function save(){ try{ localStorage.setItem(KEY, JSON.stringify(labels)); }catch(e){} }
+function show(){
+  const id = IDS[i];
+  document.getElementById("img").src = "images/"+id+".png";
+  const done = Object.keys(labels).length;
+  document.getElementById("bar").textContent = (i+1)+" / "+IDS.length+"   labeled: "+done;
+  document.querySelectorAll(".opt").forEach(o=>o.classList.toggle("sel", labels[id]===o.dataset.v));
+}
+function set(v){ labels[IDS[i]] = v; save(); if(i<IDS.length-1) i++; show(); }
+document.addEventListener("keydown", e=>{
+  if(e.key==="1") set("light"); else if(e.key==="2") set("medium"); else if(e.key==="3") set("dark");
+  else if(e.key==="u") set("unclear");
+  else if(e.key==="Backspace"){ delete labels[IDS[i]]; save(); show(); }
+  else if(e.key==="["){ i=Math.max(0,i-1); show(); } else if(e.key==="]"){ i=Math.min(IDS.length-1,i+1); show(); }
+});
+document.querySelectorAll(".opt").forEach(o=>o.onclick=()=>set(o.dataset.v));
+document.getElementById("jump").onclick=()=>{ const k=IDS.findIndex(x=>!labels[x]); if(k>=0){i=k;show();} };
+document.getElementById("dl").onclick=()=>{
+  const rows=["s_id,apparent_skin_tone"].concat(IDS.map(x=>x+","+(labels[x]||"")));
+  const a=document.createElement("a"); a.href=URL.createObjectURL(new Blob([rows.join("\n")+"\n"],{type:"text/csv"}));
+  a.download="skintone_labels.csv"; a.click();
+  const miss=IDS.filter(x=>!labels[x]).length; document.getElementById("status").textContent = miss? miss+" images have no label yet (blank in the CSV).":"All labeled.";
+};
+show();
+</script></body></html>
