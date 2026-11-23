@@ -361,6 +361,62 @@
       el("p", { class: "side-note", text: `Based on ${r.n_labeled ?? "?"} labeled images over ${r.n_seeds ?? "?"} seeds. Intervals come from resampling seeds and are approximate. Only features marked as main tests get a corrected p-value; the rest are estimates.` }));
   }
 
+
+  // ---------- apparent skin tone (exploratory; only shown when data/skintone.json exists) ----------
+  function renderSkintone(data) {
+    const sec = $("#skintone"), body = $("#skintone-body");
+    if (!data || !Array.isArray(data.runs) || !data.runs.length) return;
+    sec.hidden = false;
+    const order = ["dem", "rep", "rotary", "assoc", "none"];
+    const parts = [el("p", { class: "notice", text:
+      "Exploratory, added after the main results were seen. When the prompt states no race, one person judged, blind to the label, how light or dark the person in each portrait looks (three bins). " +
+      "This is an impression of a synthetic picture, affected by lighting. It is not anyone's identity and says nothing about real people. The order of the labels is more trustworthy than the exact percentages." })];
+    for (const run of data.runs) {
+      const rows = order.filter((k) => run.shares[k]);
+      const W = 720, rowH = 38, top = 26, left = 250, right = 30, H = top + rows.length * rowH + 8;
+      const svg = s("svg", { viewBox: `0 0 ${W} ${H}`, class: "forest tone", role: "img",
+        "aria-label": `${run.title}: share of portraits judged light, medium and dark, for each label` });
+      const sx = (v) => left + v * (W - left - right);
+      rows.forEach((k, i) => {
+        const r = run.shares[k], y = top + i * rowH;
+        svg.append(s("text", { x: 0, y: y + 18 }, r.name));
+        let acc = 0;
+        for (const [seg, cls] of [["light", "t-light"], ["medium", "t-medium"], ["dark", "t-dark"]]) {
+          const v = r[seg];
+          if (!Number.isFinite(v) || v <= 0) continue;
+          svg.append(s("rect", { x: sx(acc), y, width: Math.max(0, sx(acc + v) - sx(acc)), height: 26, class: cls }));
+          if (v >= 0.09) svg.append(s("text", { x: (sx(acc) + sx(acc + v)) / 2, y: y + 18, "text-anchor": "middle",
+            class: seg === "dark" ? "on-dark" : "on-light" }, `${Math.round(v * 100)}%`));
+          acc += v;
+        }
+        svg.append(s("text", { x: W - 2, y: y + 18, "text-anchor": "end", class: "muted" }, `n=${r.n_defined}`));
+      });
+      const f = (m) => (m && Number.isFinite(m.rd) ? `${pp(m.rd)} (${pp(m.lo)} to ${pp(m.hi)})` : "n/a");
+      const sc = (list, who, reading) => list.find((x) => (x.gender || x.contrast) === who && x.reading === reading);
+      const t = el("table", { class: "nums" });
+      t.append(el("thead", {}, el("tr", {}, ...["Comparison (paired by seed)", "Darker, percentage points", "Lighter, percentage points", "Blocks used"].map((h) => el("th", { scope: "col", text: h })))));
+      const tb = el("tbody");
+      const addRow = (label, list, who) => {
+        const d = sc(list, who, "tone_dark"), l = sc(list, who, "tone_light");
+        if (!d) return;
+        tb.append(el("tr", {}, el("th", { scope: "row", text: label }), el("td", { class: "num", text: f(d) }),
+          el("td", { class: "num", text: f(l) }), el("td", { class: "num", text: `${d.blocks_used} of ${d.blocks_total}` })));
+      };
+      addRow("Democrat minus Republican", run.contrasts, "dem minus rep");
+      addRow("Democrat minus Republican, women", run.by_gender, "woman");
+      addRow("Democrat minus Republican, men", run.by_gender, "man");
+      addRow("Rotary Club minus neighborhood association", run.contrasts, "rotary minus assoc");
+      t.append(tb);
+      const rt = run.retest || {};
+      parts.push(el("h3", { text: run.title }), el("p", { class: "legend" },
+        el("span", { class: "key k-light", text: "light" }), el("span", { class: "key k-medium", text: "medium" }),
+        el("span", { class: "key k-dark", text: "dark" })), svg, t,
+        el("p", { class: "side-note", text: `Own consistency check on ${rt.n_pairs ?? "?"} repeated images: agreement ${rt.raw_agreement != null ? Math.round(rt.raw_agreement * 100) + "%" : "n/a"}, kappa ${rt.kappa != null ? rt.kappa.toFixed(2) : "n/a"}. One annotator, three bins. Intervals resample seeds.` }));
+    }
+    parts.push(el("p", { class: "side-note", text: "These results do not show why the model behaves this way, and they are not a claim about any group of people. See the log of changes to the plan in the repository." }));
+    body.replaceChildren(...parts);
+  }
+
   // ---------- start ----------
   async function start() {
     try {
@@ -373,6 +429,10 @@
       initGallery();
       initViewer();
       renderResults();
+      try {
+        const resp = await fetch("data/skintone.json");
+        if (resp.ok) renderSkintone(await resp.json());
+      } catch (e) { /* optional section: stay hidden */ }
     } catch (err) {
       const box = $("#load-error");
       box.hidden = false;

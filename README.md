@@ -62,6 +62,7 @@ Fill from `results/main-sdxlfast/contrasts.csv`, `agreement.csv` and `robustness
 │   ├── explore_by_group.py    EXPLORATORY: Democrat-minus-Republican by stated group and gender, apparent age
 │   ├── make_skintone_set.py   EXPLORATORY: blind labeling tool for apparent skin tone (no-group arm)
 │   ├── analyze_skintone.py    EXPLORATORY: skin-tone contrasts and your own test-retest agreement
+│   ├── export_skintone_site.py  writes site/data/skintone.json for the optional skin-tone section
 │   ├── make_web_assets.py     thumbnails and images.json for the site
 │   ├── export_site_results.py results.json for the site's forest plot
 │   └── run_pilot_then_main.sh obsolete helper from the first run (kept for the record)
@@ -128,6 +129,8 @@ python scripts/analyze_skintone.py --run outputs/main-sdxlfast --mode main-sdxlf
 python scripts/generate.py run replicate --engine sdxlfast --templates N1 --seeds 15 --out outputs
 python scripts/make_skintone_set.py --run outputs/replicate-sdxlfast --out outputs/skintone_replicate
 python scripts/analyze_skintone.py --run outputs/replicate-sdxlfast --dir outputs/skintone_replicate --mode replicate-sdxlfast
+#    optional site section for these results (hidden until this file exists):
+python scripts/export_skintone_site.py --run "First pass (seeds 0-14)=main-sdxlfast" --run "Replication (seeds 15-29)=replicate-sdxlfast"
 # 9. Site data, then serve it
 python scripts/make_web_assets.py --run outputs/main-sdxlfast --out site
 python scripts/export_site_results.py --mode main-sdxlfast --out site

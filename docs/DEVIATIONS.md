@@ -73,8 +73,27 @@ unclear), finished about 09:20. The Democrat-vs-Republican contrast was named be
 vs Democrat 44.4%; Democrat minus Republican on mean tone score +0.68 (95% seed-bootstrap interval 0.43 to 0.96). Own
 test-retest agreement kappa 0.86 on 20 pairs. No p-values; exploratory.
 
+Democrat minus Republican on apparent skin tone, no race stated:
+
+	Dark	Light	Mean tone score	Blocks used
+Women	+38.5 pp (13.3 to 64.3)	−69.2 pp (−92.3 to −41.7)	+1.08 (0.67 to 1.46)	13 of 15
+Men	0.0	−23.1 pp (−46.7 to 0.0)	+0.23 (0.00 to 0.47)	13 of 15
+women +1.08, 0.67 to 1.46; men +0.23, 0.00 to 0.47 
+
 ## D18 (2026-11-23, [time]): replication run, written BEFORE generating
 New mode `replicate` in scripts/generate.py: seeds 15-29, no-group arm only, engine sdxlfast, template N1, same negative prompt
 and settings as the main run (150 images, folder outputs/replicate-sdxlfast). Prediction (stated before seeing any
 image): in the replication, Democrat minus Republican on mean skin-tone score has the same sign as in D17 and the interval
 excludes zero. If not, the D17 result is reported as not replicated. Labeling will again be blind, with 20 duplicates.
+
+Added before labeling the replication (2026-11-23, [time]): secondary prediction, from the first-pass by-gender
+table (women: Democrat minus Republican mean tone score +1.08, interval 0.67 to 1.46; men: +0.23, interval 0.00 to 0.47).
+In the replication, the women's contrast has the same sign with an interval that excludes zero; the men's contrast
+has the same sign and a smaller magnitude. If the women's interval includes zero, the first-pass result is not replicated.
+
+## D18 outcome (2026-11-23, [time])
+Replication (seeds 15-29, 150 images, labeled blind with 20 duplicates, duplicates agreed 20 of 20): Democrat minus Republican
+mean tone score +0.47 (95% seed-bootstrap interval 0.23 to 0.73); dark +26.7 pp (13.3 to 43.3); light -20.0 pp (-36.7 to -6.7).
+Women +0.64 (0.29 to 1.00); men +0.29 (0.00 to 0.71). Both predictions held: same sign with an interval excluding zero overall and for women;
+men smaller. Effect sizes were smaller than in the first pass (+0.68 overall, +1.08 for women), the usual pattern for a result
+first noticed after the fact. Apparent skin tone is one annotator's impression of synthetic images; absolute shares are not stable across runs.
