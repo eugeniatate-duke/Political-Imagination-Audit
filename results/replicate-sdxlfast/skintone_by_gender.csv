@@ -1,0 +1,7 @@
+gender,contrast,reading,rd,lo,hi,blocks_used,blocks_total
+man,dem minus rep,tone_dark,0.1429,0.0000,0.3571,14,15
+man,dem minus rep,tone_light,-0.1429,-0.3571,0.0000,14,15
+man,dem minus rep,tone_score,0.2857,0.0000,0.7143,14,15
+woman,dem minus rep,tone_dark,0.3571,0.1333,0.6154,14,15
+woman,dem minus rep,tone_light,-0.2857,-0.5385,-0.0714,14,15
+woman,dem minus rep,tone_score,0.6429,0.2857,1.0000,14,15

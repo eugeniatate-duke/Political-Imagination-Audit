@@ -7,7 +7,7 @@ Reads outputs/skintone/{manifest_PRIVATE.csv, skintone_labels.csv} (save the dow
 Uses the FIRST labeling of each image; the duplicate copies are used only to measure your own consistency
 (test-retest agreement), which limits how far the results can be trusted.
 
-Outputs (results/<mode>/):  skintone_rates.csv, skintone_contrasts.csv, skintone_retest.json
+Outputs (results/<mode>/):  skintone_rates.csv, skintone_contrasts.csv, skintone_by_gender.csv, skintone_retest.json
 Estimates use the same paired design as analyze.py (seed = resampling unit, bootstrap interval). No p-values:
 this is exploratory, one annotator, 15 seeds, coarse bins, and skin tone in a picture depends on lighting.
 """
@@ -82,8 +82,16 @@ def main():
             r = an.contrast(first, a, b, reading, seeds, idx, rng)
             rows.append(dict(contrast=f"{a} minus {b}", reading=reading, rd=r["rd"], lo=r["lo"], hi=r["hi"],
                              blocks_used=r["n_blocks_valid"], blocks_total=r["n_blocks"]))
+    # Democrat minus Republican within each stated gender (exploratory: 15 blocks per gender)
+    by_gender = []
+    for gender, part in first.groupby("gender"):
+        for reading in ("tone_dark", "tone_light", "tone_score"):
+            r = an.contrast(part, "dem", "rep", reading, seeds, idx, rng)
+            by_gender.append(dict(gender=gender, contrast="dem minus rep", reading=reading, rd=r["rd"], lo=r["lo"],
+                                  hi=r["hi"], blocks_used=r["n_blocks_valid"], blocks_total=r["n_blocks"]))
     res = Path(args.results) / args.mode
     res.mkdir(parents=True, exist_ok=True)
+    pd.DataFrame(by_gender).to_csv(res / "skintone_by_gender.csv", index=False, float_format="%.4f")
     pd.DataFrame(rates).to_csv(res / "skintone_rates.csv", index=False, float_format="%.4f")
     pd.DataFrame(rows).to_csv(res / "skintone_contrasts.csv", index=False, float_format="%.4f")
     (res / "skintone_retest.json").write_text(json.dumps(retest, indent=2))
@@ -93,6 +101,9 @@ def main():
         print(pd.DataFrame(rates).pivot(index="label", columns="reading", values="share").to_string())
         print("\nPaired contrasts (proportion or mean-score difference, 95% seed-bootstrap interval):")
         print(pd.DataFrame(rows).to_string(index=False))
+    print("\nDemocrat minus Republican within each stated gender:")
+    with pd.option_context("display.width", 200, "display.float_format", "{:.3f}".format):
+        print(pd.DataFrame(by_gender).to_string(index=False))
     print("\nTest-retest on your duplicate labels:", retest)
     print("Exploratory, one annotator. 'tone_score' is 0 light, 1 medium, 2 dark.")
 

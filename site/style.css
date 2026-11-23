@@ -213,3 +213,19 @@ dialog::backdrop { background: rgba(21, 24, 29, 0.78); }
 .viewer-actions button { padding: 0.45rem 0.9rem; font: 600 0.95rem var(--sans); color: var(--ink); background: var(--paper); border: 1px solid var(--ink); border-radius: 0; cursor: pointer; }
 .viewer-actions button:hover { background: var(--marker); }
 .v-full { margin: 0; font: 0.88rem var(--sans); }
+
+/* apparent skin tone section: neutral grays, numbers carry the meaning */
+.forest.tone .t-light { fill: #F7F8F9; stroke: var(--ink); stroke-width: 1; }
+.forest.tone .t-medium { fill: #A3A8AE; stroke: var(--ink); stroke-width: 1; }
+.forest.tone .t-dark { fill: #2B2F35; stroke: var(--ink); stroke-width: 1; }
+.forest.tone .on-light { fill: var(--ink); font-weight: 600; }
+.forest.tone .on-dark { fill: #fff; font-weight: 600; }
+.legend .key { padding-left: 1.5rem; position: relative; }
+.legend .key::before { content: ""; position: absolute; left: 0; top: 0.2em; width: 1.1rem; height: 0.9rem; border: 1px solid var(--ink); }
+.legend .k-light::before { background: #F7F8F9; }
+.legend .k-medium::before { background: #A3A8AE; }
+.legend .k-dark::before { background: #2B2F35; }
+#skintone h3 { font: 800 1.2rem var(--sans); margin: 2rem 0 0.4rem; }
+
+.band[hidden] { display: none; }
+#skintone .side-note { margin-top: 0.75rem; max-width: 46rem; }
