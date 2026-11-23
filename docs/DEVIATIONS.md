@@ -62,3 +62,19 @@ Purpose: a reader can separate what was planned from what was decided after seei
 - Observed before labeling, not tested: illustrated or poster-style images concentrated in seed 7 (handled by assessable = no); flags in Dem and Rep images in the same seeds but not in the Rotary or association images seen. Any test of these is post hoc.
 
 
+Codebook v1.0 was frozen in commit 4e7850d (branch feat/annotation-and-exhibit, merged to main) on 2026-11-22, before any labeling.
+
+## D17 (2026-11-23): post hoc exploratory analyses after the main results were seen
+Main results (analyze.py) were viewed at about 08:25. Afterwards, three exploratory analyses were added that were not in
+docs/ANALYSIS_PLAN.md: (a) Democrat-minus-Republican by stated group and gender and apparent age by label
+(scripts/explore_by_group.py); (b) apparent skin tone in the no-group arm (scripts/make_skintone_set.py,
+scripts/analyze_skintone.py): 150 images plus 20 duplicates, labeled blind by one annotator in three bins (light, medium, dark,
+unclear), finished about 09:20. The Democrat-vs-Republican contrast was named before labeling. Result: Republican 88.5% light
+vs Democrat 44.4%; Democrat minus Republican on mean tone score +0.68 (95% seed-bootstrap interval 0.43 to 0.96). Own
+test-retest agreement kappa 0.86 on 20 pairs. No p-values; exploratory.
+
+## D18 (2026-11-23, [time]): replication run, written BEFORE generating
+New mode `replicate` in scripts/generate.py: seeds 15-29, no-group arm only, engine sdxlfast, template N1, same negative prompt
+and settings as the main run (150 images, folder outputs/replicate-sdxlfast). Prediction (stated before seeing any
+image): in the replication, Democrat minus Republican on mean skin-tone score has the same sign as in D17 and the interval
+excludes zero. If not, the D17 result is reported as not replicated. Labeling will again be blind, with 20 duplicates.
