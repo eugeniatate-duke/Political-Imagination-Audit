@@ -109,7 +109,7 @@
     const excluded = imgs.filter((e) => !e.thumb).length;
     const engines = Array.from(new Set(imgs.map((e) => e.engine).filter(Boolean)));
     $$("[data-stat='wall_note']").forEach((n) => {
-      n.textContent = `non-excluded image for that label (${excluded} excluded in total and listed in the gallery)`;
+      n.textContent = `every non-excluded image for that label (${excluded} excluded in total, all listed in the gallery)`;
     });
     $$("[data-stat='engine']").forEach((n) => { n.textContent = engines.length ? engines.join(" and ") : "an image generator"; });
     $$("[data-stat='method_counts']").forEach((n) => {
