@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Blind labeling tool</title>
+<style>
+ body{font-family:system-ui,sans-serif;margin:0;display:flex;height:100vh;background:#f6f6f4;color:#222}
+ #left{flex:0 0 560px;padding:12px;display:flex;flex-direction:column;align-items:center}
+ #left img{max-width:100%;max-height:92vh;width:auto;height:auto;object-fit:contain;border:1px solid #bbb;background:#fff}
+ #right{flex:1;padding:12px 18px;overflow:auto}
+ .field{padding:6px 8px;margin:3px 0;border-radius:6px;border:1px solid transparent}
+ .field.cur{background:#fff;border-color:#2a6fdb}
+ .field b{display:inline-block;min-width:210px}
+ .opt{display:inline-block;margin:2px 6px 2px 0;padding:2px 7px;border:1px solid #bbb;border-radius:4px;cursor:pointer;background:#fafafa}
+ .opt.sel{background:#2a6fdb;color:#fff;border-color:#2a6fdb}
+ .def{font-size:12px;color:#666;margin:2px 0 0 0}
+ button{margin:4px 6px 4px 0;padding:6px 10px}
+ #bar{margin:6px 0;font-size:14px}
+</style></head><body>
+<div id="left">
+  <div id="bar"></div>
+  <img id="img" alt="image to label">
+  <div style="margin-top:8px;font-size:13px;color:#555;text-align:center">
+   Keys: <b>1-8</b> pick option, <b>u</b> = unclear, <b>Backspace</b> = back one field,
+   <b>[</b> previous image, <b>]</b> next image. Picking <i>assessable = no</i> fills the rest as unclear.
+  </div>
+  <div style="margin-top:8px">
+   <button id="dl">Download CSV (do this every ~20 images)</button>
+  </div>
+</div>
+<div id="right"><div id="fields"></div></div>
+<script>
+const FIELDS = [{"name": "assessable", "values": ["yes", "no"], "def": "no if the image is stylized (painting, illustration, heavy filter), black-and-white or archival-looking, shows no clear single foreground person, or the torso is not visible. If no, every other field must be unclear."}, {"name": "top_type", "values": ["sleeveless", "short_sleeve_tee", "collared_polo", "button_up_shirt", "jacket_or_blazer", "knit_or_long_sleeve", "bare_torso", "other", "unclear"], "def": "Dominant upper garment. sleeveless = tank top, straps, vest. A jacket over a shirt is jacket_or_blazer. bare_torso = no upper garment visible (shoulders and chest bare)."}, {"name": "smile", "values": ["none", "closed_mouth", "teeth_showing", "unclear"], "def": "teeth_showing needs visible teeth; a closed smile is closed_mouth."}, {"name": "political_symbol", "values": ["yes", "no", "unclear"], "def": "yes only for an explicit political item: flag, campaign button or sign, party animal, vote-style text. A flag or banner counts when it is clearly visible anywhere in the image, including the background. Colors, stars and generic logos are NOT political symbols."}, {"name": "scene", "values": ["city_street_or_sidewalk", "residential_street_or_home_exterior", "shop_cafe_or_market", "plaza_park_or_green_space", "event_or_meeting_space", "building_wall_or_facade", "leisure_or_sports_venue", "other_interior", "other", "unclear"], "def": "Judge the background behind the person, not what they hold. Pick the one setting that fills most of the background. city_street_or_sidewalk = road, sidewalk, traffic, storefronts seen along a street. residential_street_or_home_exterior = houses, porches, steps, yards. shop_cafe_or_market = inside or directly in front of a shop, cafe, restaurant, stall or market. plaza_park_or_green_space = open paved square, park, garden, lawn. event_or_meeting_space = tables, crowd, podium or banners for a gathering. building_wall_or_facade = the person stands in front of a plain wall or building front and little else is visible. leisure_or_sports_venue = bowling alley, gym, court, field. other_interior = any other indoor place. other = anything else."}, {"name": "glasses", "values": ["yes", "no", "unclear"], "def": "Eyeglasses or sunglasses worn on the face."}, {"name": "jewelry_or_watch", "values": ["yes", "no", "unclear"], "def": "Necklace, earrings, watch or visible rings."}, {"name": "headwear", "values": ["none", "cap_or_hat", "scarf_or_wrap", "other", "unclear"], "def": "Anything worn on the head."}, {"name": "arms_crossed", "values": ["yes", "no", "unclear"], "def": "Arms crossed over the chest or torso."}, {"name": "held_object", "values": ["none", "ball_or_sports_item", "other", "unclear"], "def": "Object held in a hand."}, {"name": "emblem_or_text_on_clothing", "values": ["yes", "no", "unclear"], "def": "Any visible logo, badge, name tag, lanyard or lettering on clothing."}, {"name": "top_color_family", "values": ["red_or_pink", "blue_or_teal", "green", "neutral", "other", "unclear"], "def": "Color of the dominant upper garment. neutral = black, white, gray, beige."}, {"name": "visible_distortion", "values": ["yes", "no", "unclear"], "def": "yes if the face, hands, arms or body is obviously distorted (extra or merged limbs, melted or asymmetric face, impossible anatomy). Minor softness is not distortion."}, {"name": "apparent_age_band", "values": ["under_35", "35_to_59", "60_plus", "unclear"], "def": "Coarse impression of how old the person looks. Not a measurement and not an identity."}];          // [{name, values, def}]
+const IMAGES = ["images/v001.png", "images/v002.png", "images/v003.png", "images/v004.png", "images/v005.png", "images/v006.png", "images/v007.png", "images/v008.png", "images/v009.png", "images/v010.png", "images/v011.png", "images/v012.png", "images/v013.png", "images/v014.png", "images/v015.png", "images/v016.png", "images/v017.png", "images/v018.png", "images/v019.png", "images/v020.png", "images/v021.png", "images/v022.png", "images/v023.png", "images/v024.png", "images/v025.png", "images/v026.png", "images/v027.png", "images/v028.png", "images/v029.png", "images/v030.png", "images/v031.png", "images/v032.png", "images/v033.png", "images/v034.png", "images/v035.png", "images/v036.png", "images/v037.png", "images/v038.png", "images/v039.png", "images/v040.png", "images/v041.png", "images/v042.png", "images/v043.png", "images/v044.png", "images/v045.png", "images/v046.png", "images/v047.png", "images/v048.png", "images/v049.png", "images/v050.png", "images/v051.png", "images/v052.png", "images/v053.png", "images/v054.png", "images/v055.png", "images/v056.png", "images/v057.png", "images/v058.png", "images/v059.png", "images/v060.png", "images/v061.png", "images/v062.png", "images/v063.png", "images/v064.png", "images/v065.png", "images/v066.png", "images/v067.png", "images/v068.png", "images/v069.png", "images/v070.png", "images/v071.png", "images/v072.png", "images/v073.png", "images/v074.png", "images/v075.png", "images/v076.png", "images/v077.png", "images/v078.png", "images/v079.png", "images/v080.png", "images/v081.png", "images/v082.png", "images/v083.png", "images/v084.png", "images/v085.png", "images/v086.png", "images/v087.png", "images/v088.png", "images/v089.png", "images/v090.png"];          // ["images/v001.png", ...]
+const STORE = "label_tool_v1_" + IMAGES.length;
+
+// LOGIC-START  (pure functions; unit-tested in tests/test_label_tool.py)
+function newState(n){return {idx:0, fi:0, answers:Array.from({length:n},()=>({}))};}
+function applyKey(s, key){
+  const f = FIELDS[s.fi], a = s.answers[s.idx];
+  if(key === "Backspace"){ if(s.fi>0){s.fi--;} else if(s.idx>0){s.idx--; s.fi=FIELDS.length-1;} return s; }
+  if(key === "[" ){ if(s.idx>0){s.idx--; s.fi=0;} return s; }
+  if(key === "]" ){ if(s.idx<s.answers.length-1){s.idx++; s.fi=0;} return s; }
+  let val = null;
+  if(key === "u"){ val = f.values.includes("unclear") ? "unclear" : null; }
+  else if(/^[1-9]$/.test(key)){ val = f.values[parseInt(key,10)-1] || null; }
+  if(val === null) return s;
+  a[f.name] = val;
+  if(f.name === "assessable" && val === "no"){           // codebook rule: everything else unclear
+    FIELDS.forEach(g => { if(g.name !== "assessable") a[g.name] = "unclear"; });
+    if(s.idx < s.answers.length-1){ s.idx++; s.fi = 0; } else { s.fi = FIELDS.length-1; }
+    return s;
+  }
+  if(s.fi < FIELDS.length-1){ s.fi++; }
+  else if(s.idx < s.answers.length-1){ s.idx++; s.fi = 0; }
+  return s;
+}
+function formalAttire(a){
+  if(a.assessable === "no") return "unclear";
+  if(!a.top_type || a.top_type === "unclear") return "unclear";
+  return (a.top_type === "jacket_or_blazer" || a.top_type === "button_up_shirt") ? "yes" : "no";
+}
+function toCsv(answers){
+  const cols = FIELDS.map(f => f.name).concat(["formal_attire"]);
+  const rows = [["v_id"].concat(cols).join(",")];
+  answers.forEach((a, i) => {
+    const vid = "v" + String(i+1).padStart(3, "0");
+    rows.push([vid].concat(FIELDS.map(f => a[f.name] || "")).concat([formalAttire(a)]).join(","));
+  });
+  return rows.join("\n") + "\n";
+}
+// LOGIC-END
+
+let S = newState(IMAGES.length);
+try { const saved = JSON.parse(localStorage.getItem(STORE)); if(saved && saved.answers.length === IMAGES.length) S = saved; } catch(e) {}
+function save(){ try { localStorage.setItem(STORE, JSON.stringify(S)); } catch(e) {} }
+function render(){
+  document.getElementById("img").src = IMAGES[S.idx];
+  const done = S.answers.filter(a => FIELDS.every(f => a[f.name])).length;
+  document.getElementById("bar").textContent = "Image " + (S.idx+1) + " of " + IMAGES.length + "  |  fully labeled: " + done;
+  const box = document.getElementById("fields"); box.innerHTML = "";
+  FIELDS.forEach((f, k) => {
+    const d = document.createElement("div"); d.className = "field" + (k === S.fi ? " cur" : "");
+    const t = document.createElement("b"); t.textContent = f.name; d.appendChild(t);
+    f.values.forEach((v, j) => {
+      const o = document.createElement("span");
+      o.className = "opt" + (S.answers[S.idx][f.name] === v ? " sel" : "");
+      o.textContent = (j+1) + " " + v;
+      o.onclick = () => { S.fi = k; S = applyKey(S, String(j+1)); save(); render(); };
+      d.appendChild(o);
+    });
+    if(k === S.fi){ const p = document.createElement("div"); p.className = "def"; p.textContent = f.def; d.appendChild(p); }
+    box.appendChild(d);
+  });
+}
+document.addEventListener("keydown", e => {
+  if(e.metaKey || e.ctrlKey || e.altKey) return;
+  S = applyKey(S, e.key); save(); render();
+});
+document.getElementById("dl").onclick = () => {
+  const blob = new Blob([toCsv(S.answers)], {type:"text/csv"});
+  const a = document.createElement("a"); a.href = URL.createObjectURL(blob);
+  a.download = "manual_labels.csv"; a.click();
+};
+render();
+</script></body></html>
