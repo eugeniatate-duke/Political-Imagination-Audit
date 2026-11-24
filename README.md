@@ -194,7 +194,7 @@ Full details and the reasons for each choice: [docs/ANALYSIS_PLAN.md](docs/ANALY
 
 **Why it matters.** Image generators are used to illustrate news, campaigns and teaching material. Political identity is not visible, so any consistent look attached to a label is a stereotype the model supplies. Research on people's beliefs about parties shows these pictures are often wrong (Ahler and Sood 2018; Rothschild et al. 2018), and work on image models shows they can reproduce and amplify stereotypes (Steed and Caliskan 2021; Bianchi et al. 2023). Stakeholders include people depicted by label, audiences who may take the image as evidence, and publishers who use the tool.
 
-**Limits to state in the final version [FINISH AFTER ANALYSIS]:**
+**Limits to state in the final version:**
 - One model, one template, one image size, 15 seeds: results may not hold for other models, wording or settings. No paraphrase arm was run unless DEVIATIONS.md says otherwise.
 - Low statistical power: only large differences are detectable (`scripts/power_sim.py`; its assumptions are not estimates from data).
 - Apparent skin tone and apparent age are one annotator's impressions of synthetic images (skin tone: three bins, labeled blind, with a duplicate-image consistency check); lighting and photo style affect them.
