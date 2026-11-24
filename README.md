@@ -6,8 +6,6 @@ by Eugenia Tate, for AIPI 590 XAI Project 2, Duke University
 
 **Live exhibit:** https://eugeniatate-duke.github.io/Political-Imagination-Audit/ · **Full-resolution images:** [v1.0 release](https://github.com/eugeniatate-duke/Political-Imagination-Audit/releases/tag/v1.0)
 
-> Status: complete for submission (November 2026). Every number in section 2 comes from the files in `results/`, produced by the scripts in section 5. Changes to the plan after the main results were seen are logged in `docs/DEVIATIONS.md`.
-
 All people shown in this project are **synthetic images** made by a text-to-image model. They are not photographs of real people, and they are not a sample of what Democrats, Republicans or members of any group look like. The audit measures the model's associations between a prompt label and visual features. It does not measure the people the labels name.
 
 ---
