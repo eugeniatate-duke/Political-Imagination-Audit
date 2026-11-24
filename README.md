@@ -183,12 +183,33 @@ Image files are synthetic and generated under the licenses of the model used. Ch
 ## 7. Methods in brief
 
 - **Pairing.** Block = (template, seed, group, gender). Estimates are risk differences averaged over seeds.
-- **Uncertainty.** Percentile bootstrap over seeds (5000 resamples) and an exact sign-flip permutation test over seeds. Holm correction across the three main tests.
+- **Uncertainty.** Percentile bootstrap over seeds (5000 resamples) and an exact sign-flip permutation test over seeds. Holm correction across the main tests that passed the agreement check.
 - **Baseline.** The same contrast between the two non-political labels shows how much the label alone moves a feature.
 - **Labels.** Codebook v1.0 was frozen before any labeling. A local vision model labels every image; one human labeled 90 blind. A main test whose automated labels disagree with the manual ones (kappa below 0.6, or AC1 below 0.8 when the feature is rare) is demoted rather than hand-corrected.
 - **Not assessable.** Illustrated images, images without one clear person, and images where the torso is not visible are kept in the record and excluded from feature contrasts.
 
 Full details and the reasons for each choice: [docs/ANALYSIS_PLAN.md](docs/ANALYSIS_PLAN.md), [docs/CODEBOOK.md](docs/CODEBOOK.md), [docs/DEVIATIONS.md](docs/DEVIATIONS.md).
+
+### XAI and Responsible AI concepts used
+
+This project is a **black-box behavioral audit** with controlled interventions and careful measurement. It is not mechanistic interpretability, and it says so.
+
+| Concept | How it is used here | Where | What it shows, and what it does not |
+|---|---|---|---|
+| Black-box behavioral audit | Only the inputs and outputs of Stable Diffusion XL are observed, never weights or activations. | whole project | Shows what the model draws under these prompts. Says nothing about internals. |
+| Counterfactual (paired) intervention | Seed, stated group and stated gender are fixed; only the label word changes. | `scripts/generate.py`, `docs/ANALYSIS_PLAN.md` | Establishes what changing the label does to the output in this setup. It does not establish why (training data, text encoder or sampler). |
+| Controls and yardsticks | Two non-political labels and a no-label baseline show how much any swapped label moves a feature. | `scripts/analyze.py` | A Democrat-versus-Republican difference can be judged against a non-political one. |
+| Concept-level annotation | A frozen codebook of observable, human-interpretable features (attire, smile, symbol, scene, apparent age and skin tone), with "not assessable". | `docs/CODEBOOK.md` | Attributes are impressions of pictures, not identities. No internal representation is probed. |
+| Validity of automated evaluation | A local vision-language model labels every image; 90 blind manual labels check it; a feature that fails the agreement gate (kappa or AC1) is demoted, never hand-corrected. | `scripts/agreement.py` | Automated labels are not ground truth, and there is one annotator. |
+| Measurement reliability | Test-retest on 20 duplicate images in the skin-tone arm. | `scripts/analyze_skintone.py` | My own consistency, not agreement between people. |
+| Statistical uncertainty | Risk differences averaged over seeds; seed-cluster bootstrap; exact sign-flip permutation test; Holm correction; Wilson intervals; a sensitivity analysis of what 15 seeds can detect. | `scripts/analyze.py`, `docs/ANALYSIS_PLAN.md` | Intervals describe 15 seeds from one model. A wide interval is not evidence of no difference. |
+| Researcher degrees of freedom and reproducibility | Dated analysis plan, a change log of deviations, main versus exploratory analyses kept apart, and a replication whose prediction was written before the new images were generated. | `docs/ANALYSIS_PLAN.md`, `docs/DEVIATIONS.md` | A dated plan, not a time-stamped pre-registration. |
+| Representational harm and stereotyping | Frames the question as an association between a political label and appearance. | `docs/WHY_AND_LITERATURE.md` | A difference is not automatically harm, and identical outputs are not automatically fair. |
+| Transparency for non-experts | An interactive exhibit with matched comparisons and a gallery of every image, including excluded ones. | `site/` | Examples are not selected for effect. |
+| Documentation and release | Per-image records (prompt, seed, settings), codebook, code, data, release and license. | this README | Lets others rerun, audit or extend it. |
+| Misuse safeguards | No real photographs, no face-based political classifier, every person labeled synthetic. | section 8 | Does not remove the risk that others misuse the images. |
+
+**Not used, on purpose.** SHAP, LIME, attention or saliency maps, Grad-CAM, concept activation vectors, probing of the text encoder or the denoising network, mechanistic interpretability, and fine-tuning. They answer different questions (why the network behaves this way) and would not answer this one (what it outputs when only a label changes). The risk difference here is a gap in an attribute of generated images, not a fairness metric for a decision system. A natural next step is to test whether the text encoder drives the pattern, for example by comparing label embeddings or swapping encoders.
 
 ## 8. Responsible AI notes and limitations
 
