@@ -238,7 +238,6 @@ Verified against the full papers:
 - Bianchi, F., et al. (2023). Easily Accessible Text-to-Image Generation Amplifies Demographic Stereotypes at Large Scale. *FAccT*. doi:10.1145/3593013.3594095
 - Porikli, S., and Porikli, V. (2025). Hidden Bias in the Machine: Stereotypes in Text-to-Image Models. arXiv:2506.13780.
 
-Check author lists and titles against the PDFs before submitting. Add models and software used (Stable Diffusion XL, Qwen2.5-VL, diffusers, Ollama) with their official pages.
 
 ## 10. Cite and license
 
@@ -246,4 +245,3 @@ Check author lists and titles against the PDFs before submitting. Add models and
 - Generated images are outputs of Stable Diffusion XL base 1.0 and fall under that model's license terms: check the model card before reusing them. The labels and tables are shared for research and teaching.
 - No real person's photograph is used anywhere in this project.
 
-If you use this audit, cite this repository and the papers in the references.
