@@ -207,6 +207,19 @@
         the main features that passed that check.</p>
       <p>The plan, every change to it, and the codebook are in the repository. They are a dated analysis plan
         with a change log, not a time-stamped pre-registration.</p>
+      <p>This is a black-box audit with controlled interventions, not an explanation of the model’s insides.
+        The course ideas it uses:</p>
+      <ul class="plain">
+        <li>A counterfactual comparison: the same seed, group and gender, with only the label changed.</li>
+        <li>Non-political labels as a yardstick, so a difference can be judged against a difference that means nothing politically.</li>
+        <li>A written codebook of observable features, and a check of the automated labels against my own blind labels.</li>
+        <li>Uncertainty from resampling seeds, a permutation test, a correction for several tests, and a replication whose prediction was written first.</li>
+        <li>A dated plan with a change log, so analyses added after seeing results are marked as exploratory.</li>
+        <li>An exhibit built for people outside the course, showing every image.</li>
+      </ul>
+      <p>Not used, on purpose: feature-attribution tools such as SHAP or LIME, attention maps, and probing of the
+        network. They would answer why the model behaves this way, not what it draws when one word changes. The
+        <a href="https://github.com/eugeniatate-duke/Political-Imagination-Audit#xai-and-responsible-ai-concepts-used">README</a> lists every concept and where it lives in the code.</p>
     </div>
   </section>
 
