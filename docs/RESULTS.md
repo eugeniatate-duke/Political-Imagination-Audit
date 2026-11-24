@@ -3,7 +3,7 @@
 Run: `main-sdxlfast` (SDXL base 1.0, template N1, 750 images, 15 seeds, codebook v1.0).
 Numbers below are copied from `results/main-sdxlfast/` and from the site's results table. Intervals are 95%
 seed-cluster bootstrap intervals; differences are in percentage points (pp) of images showing the feature.
-**Status: main-run results are final. Sections marked PENDING wait for the replication run.**
+**Status: final. The main run, the exploratory analyses and the replication (seeds 15-29) are complete.**
 
 ## 1. Labeling quality (agreement with 90 blind manual labels)
 
@@ -63,8 +63,12 @@ Democrat minus Republican, paired by seed: dark +21.4 pp (6.7 to 39.3), light -4
 mean tone score +0.68 (0.43 to 0.96). Test-retest agreement on 20 duplicates: kappa 0.86.
 Absolute shares are not meaningful (they depend on one annotator's bins); the ordering across labels is the result.
 
-**Replication (seeds 15-29): PENDING.** Prediction written before generation (D18): same sign, interval excludes zero.
-Report here whether it held. If not, the first pass is a lead only.
+**Replication (seeds 15-29, 150 new images, no group stated, same prompts and settings).** Prediction written before generation (D18): same sign, interval excludes zero. **It held.**
+Share of images judged light / dark: Republican 75.9% / 0%; Democrat 53.6% / 25.0%; Rotary 86.7% / 3.3%; association 6.7% / 80.0%; no label 3.4% / 3.4%.
+Democrat minus Republican, paired by seed: dark +26.7 pp (13.3 to 43.3), light -20.0 pp (-36.7 to -6.7), mean tone score +0.47 (0.23 to 0.73).
+By stated gender: women +0.64 (0.29 to 1.00), men +0.29 (0.00 to 0.71). Test-retest on 20 duplicates: 20 of 20 labels repeated.
+The effect is smaller than in the first pass, as expected when a result is first noticed after the fact. The organization labels also replicated in order: association mostly dark-looking (73%, then 80%), Rotary mostly light-looking (54%, then 87%).
+Absolute shares move between runs and are not meaningful on their own; the ordering across labels is the result.
 
 ## 6. What this does and does not show
 

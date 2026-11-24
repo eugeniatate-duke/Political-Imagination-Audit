@@ -15,7 +15,8 @@
   <a class="top-title" href="#top">Political Imagination Audit</a>
   <nav aria-label="Sections">
     <a href="#wall-dem">The walls</a>
-    <a href="#why">Why</a>
+    <a href="#motivation">Motivation</a>
+    <a href="#why">Background</a>
     <a href="#compare">Compare</a>
     <a href="#results">Results</a>
     <a href="#gallery">Gallery</a>
@@ -29,7 +30,7 @@
 
   <section class="intro">
     <h1>What does an image generator draw when you ask for a Democrat?</h1>
-    <p class="lede">We asked one image generator for a person who is “a Democrat”, then for a person who is
+    <p class="lede">I asked one image generator for a person who is “a Democrat”, then for a person who is
       “a Republican”, and changed nothing else. Every person below is synthetic. None of them is a real
       Democrat, a real Republican, or a photograph of anyone.</p>
   </section>
@@ -58,16 +59,36 @@
       <p>One word. Every portrait on the second wall has a partner on the first: the same random seed, the
         same stated group and gender, the same setting words. Only “Democrat” became “Republican”.</p>
       <p>That is why the walls look alike. A seed fixes most of the layout, so the question is what the
-        label moves, and by how much. We also ran two non-political labels and a no-label version, so a
+        label moves, and by how much. I also ran two non-political labels and a no-label version, so a
         political difference can be judged against the difference any swapped label makes.</p>
       <p>Nothing here was picked for effect: each wall shows <span data-stat="wall_note">every image for that label</span>.
         Click any portrait to see all versions of the same seed.</p>
     </div>
   </section>
 
+  <section class="band" id="motivation">
+    <div class="band-label"><h2>Why I made this</h2>
+      <p class="side-note">Motivation, audience and the Responsible AI need.</p></div>
+    <div class="band-body prose">
+      <p>Image generators now draw the pictures that go into slides, posters, news graphics and social posts.
+        When someone types “a Democrat” or “a Republican”, the model supplies everything the words leave out:
+        who the person is, how old, what they wear, where they stand. Those defaults are the model’s own idea
+        of the label.</p>
+      <p>People already carry inaccurate pictures of the two parties, as the next section shows. I wanted to
+        know whether a generator carries a picture too, and in particular whether it ties a party to a race, a
+        gender or an age, the way audits of other labels have found that image models tie them to particular looks.</p>
+      <p>This is for three audiences: people who use these tools and may not notice what the defaults add,
+        students and teachers who want an audit they can read without a machine-learning background, and
+        researchers who want a protocol they can rerun on another model. Anyone a label gets applied to is
+        affected, because a default picture could shape what viewers expect a typical member to look like.</p>
+      <p>I did not ask what real Democrats or Republicans look like, and no real person’s photograph is used.
+        The pictures are the model’s output and nothing more.</p>
+    </div>
+  </section>
+
   <section class="band" id="why">
     <div class="band-label"><h2>Why would a model draw a party?</h2>
-      <p class="side-note">Three statements, each marked as established, open, or ours.</p></div>
+      <p class="side-note">Three statements, each marked as established or open.</p></div>
     <div class="band-body prose">
       <div class="claim">
         <p class="status status-established">Established, about people</p>
@@ -90,10 +111,16 @@
       <div class="claim">
         <p class="status status-open">Open, and what this project asks</p>
         <h3>Does one changed word move the picture?</h3>
-        <p>None of those four papers tests whether a text-to-image model draws a person differently when only
-          the party label changes. This audit does, for one model and one prompt setup. If the portraits differ,
-          that is an association in one model’s output. It does not show why the model does it, and it says
-          nothing about what real partisans look like.</p>
+        <p>None of the four papers above tests whether a text-to-image model draws a person differently when only
+          the party label changes. Closer work exists: a 2025 preprint prompted Stable Diffusion 1.5 and Flux-1 with
+          “a photo of a democratic person” and “a photo of a republican person” among many ideology prompts, and labeled
+          perceived race, gender, age and body type. In its Stable Diffusion 1.5 table, the democratic prompt drew a more
+          racially mixed set than the republican one (64% White and 26% Black, against 100% White). It did not pair seeds,
+          add non-political comparison labels or report uncertainty, and it gave the party contrast only brief remarks.
+          This audit asks that narrower question with those controls, for one model and one prompt setup. Any difference
+          is an association in one model’s output. It does not show why the model does it, and it says nothing about what
+          real partisans look like.</p>
+        <p class="cite">Porikli &amp; Porikli, arXiv:2506.13780.</p>
       </div>
     </div>
   </section>
@@ -193,6 +220,7 @@
         <li>A difference would show an association in the output. It would not show why, and training data is only one of several possible causes.</li>
         <li>The negative prompt removes illustrations and bare torsos, so the model’s full range is not shown.</li>
         <li>The stated group word also changes the background, for example market stalls or murals, which is a finding about the model that this audit only touches.</li>
+        <li>Skin tone and age, where they appear, are one person’s impressions of synthetic pictures in three coarse bins, and lighting affects them. They are not anyone’s identity.</li>
         <li>One annotator checked the automated labels. Agreement shows that two readers align, not that either is right.</li>
         <li>A difference is not automatically harm, and identical pictures are not automatically fair. What matters depends on who uses the pictures and for what.</li>
       </ul>
@@ -204,6 +232,7 @@
     <div class="band-body prose refs">
       <p>Ahler, D. J., &amp; Sood, G. (2018). The parties in our heads: Misperceptions about party composition and their consequences. <i>The Journal of Politics, 80</i>(3). <a href="https://doi.org/10.1086/697253">doi:10.1086/697253</a></p>
       <p>Bianchi, F., Kalluri, P., Durmus, E., Ladhak, F., Cheng, M., Nozza, D., Hashimoto, T., Jurafsky, D., Zou, J., &amp; Caliskan, A. (2023). Easily accessible text-to-image generation amplifies demographic stereotypes at large scale. <i>FAccT ’23</i>. <a href="https://doi.org/10.1145/3593013.3594095">doi:10.1145/3593013.3594095</a></p>
+      <p>Porikli, S., &amp; Porikli, V. (2025). Hidden bias in the machine: Stereotypes in text-to-image models. <i>arXiv preprint</i> arXiv:2506.13780. <a href="https://arxiv.org/abs/2506.13780">arxiv.org/abs/2506.13780</a></p>
       <p>Rothschild, J. E., Howat, A. J., Shafranek, R. M., &amp; Busby, E. C. (2018). Pigeonholing partisans: Stereotypes of party supporters and partisan polarization. <i>Political Behavior</i>. <a href="https://doi.org/10.1007/s11109-018-9457-5">doi:10.1007/s11109-018-9457-5</a></p>
       <p>Steed, R., &amp; Caliskan, A. (2021). Image representations learned with unsupervised pre-training contain human-like biases. <i>FAccT ’21</i>. <a href="https://doi.org/10.1145/3442188.3445932">doi:10.1145/3442188.3445932</a></p>
     </div>
@@ -212,9 +241,12 @@
   <section class="band" id="reproduce">
     <div class="band-label"><h2>Reproduce it</h2></div>
     <div class="band-body prose">
-      <p>The code, prompts, seeds, model snapshot, codebook, labels and analysis scripts are in the repository,
-        with setup steps and a map of every folder in its README. Every image on this page links back to its
+      <p>The code, prompts, seeds, model snapshot, codebook, labels and analysis scripts are in the
+        <a href="https://github.com/eugeniatate-duke/Political-Imagination-Audit">GitHub repository</a>, with setup steps and a map of every folder in its
+        <a href="https://github.com/eugeniatate-duke/Political-Imagination-Audit#readme">README</a>. Every image on this page links back to its
         record in <code>data/images.json</code>.</p>
+      <p>The 750 full-resolution portraits are attached to the
+        <a href="https://github.com/eugeniatate-duke/Political-Imagination-Audit/releases/tag/v1.0">v1.0 release</a>.</p>
     </div>
   </section>
 </main>
