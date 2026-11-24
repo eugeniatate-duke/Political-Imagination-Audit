@@ -20,6 +20,8 @@
   --serif: "Bitter", Georgia, "Times New Roman", serif;
   --gap: clamp(1rem, 3vw, 2.5rem);
   --label-col: 15rem;
+  --page: 80rem;  /* content width; wider screens get equal side margins */
+  --inset: max(var(--gap), calc((100% - var(--page)) / 2));
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -45,7 +47,7 @@ a:hover { background: var(--marker); }
 .top {
   position: sticky; top: 0; z-index: 10;
   display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0.25rem 1.5rem;
-  padding: 0.6rem var(--gap);
+  padding: 0.6rem var(--inset);
   background: var(--paper); border-bottom: 1px solid var(--rule);
   font-family: var(--sans);
 }
@@ -58,9 +60,9 @@ a:hover { background: var(--marker); }
 .load-error { margin: var(--gap); padding: 1rem 1.25rem; background: var(--marker); font-family: var(--sans); font-weight: 600; }
 
 /* intro */
-.intro { padding: clamp(1.5rem, 4vw, 3rem) var(--gap) clamp(1.25rem, 3vw, 2rem); max-width: 64rem; }
+.intro { padding: clamp(1.5rem, 4vw, 3rem) var(--inset) clamp(1.25rem, 3vw, 2rem); }
 .intro h1 {
-  margin: 0 0 1.25rem;
+  margin: 0 0 1.25rem; max-width: 56rem;
   font-family: var(--sans); font-weight: 800; font-size: clamp(2rem, 4.6vw, 3.6rem);
   line-height: 1.02; letter-spacing: -0.025em; text-wrap: balance;
 }
@@ -97,7 +99,7 @@ a:hover { background: var(--marker); }
 /* bands: label column on the left, content on the right, like a wall label beside an artwork */
 .band {
   display: grid; grid-template-columns: minmax(0, var(--label-col)) minmax(0, 1fr); gap: var(--gap);
-  padding: clamp(2.5rem, 6vw, 4.5rem) var(--gap);
+  padding: clamp(2.5rem, 6vw, 4.5rem) var(--inset);
   background: var(--paper);
   border-top: 1px solid var(--rule);
 }
@@ -190,7 +192,7 @@ table.nums th { font-weight: 600; }
 .refs p { padding-left: 1.5rem; text-indent: -1.5rem; font-size: 0.98rem; }
 code { font: 0.9em ui-monospace, "SF Mono", Menlo, Consolas, monospace; background: var(--plaster); padding: 0.05rem 0.3rem; }
 
-.foot { padding: 2rem var(--gap) 3rem; border-top: 1px solid var(--rule); font-family: var(--sans); font-size: 0.9rem; color: var(--graphite); }
+.foot { padding: 2rem var(--inset) 3rem; border-top: 1px solid var(--rule); font-family: var(--sans); font-size: 0.9rem; color: var(--graphite); }
 .foot p { margin: 0; max-width: 44rem; }
 
 /* viewer dialog */

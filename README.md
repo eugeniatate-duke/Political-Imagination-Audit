@@ -4,11 +4,11 @@
 
 by Eugenia Tate, for AIPI 590 XAI Project 2, Duke University
 
-> Status: DRAFT written before the labeling and analysis finished. Every section marked **[FILL AFTER ANALYSIS]** must be completed from `results/main-sdxlfast/` before submission. No result is stated anywhere in this file until it has been produced by the code.
+**Live exhibit:** https://eugeniatate-duke.github.io/Political-Imagination-Audit/ · **Full-resolution images:** [v1.0 release](https://github.com/eugeniatate-duke/Political-Imagination-Audit/releases/tag/v1.0)
+
+> Status: complete for submission (November 2026). Every number in section 2 comes from the files in `results/`, produced by the scripts in section 5. Changes to the plan after the main results were seen are logged in `docs/DEVIATIONS.md`.
 
 All people shown in this project are **synthetic images** made by a text-to-image model. They are not photographs of real people, and they are not a sample of what Democrats, Republicans or members of any group look like. The audit measures the model's associations between a prompt label and visual features. It does not measure the people the labels name.
-
-https://eugeniatate-duke.github.io/Political-Imagination-Audit/ 
 
 ---
 
@@ -32,11 +32,39 @@ Design: 15 seeds x 5 stated groups (none, Asian, Black, Hispanic, white) x 2 sta
 
 **What this can and cannot show.** The experiment shows what the model outputs under these prompts. It does not show why (training data, text encoder or sampler), and it does not show harm. See [docs/ANALYSIS_PLAN.md](docs/ANALYSIS_PLAN.md) and section 8.
 
-## 2. Results  **[FILL AFTER ANALYSIS]**
+![Pipeline of the audit: plan, generate, record, label, agreement gate, analyze, result tables, exhibit; exploratory analyses feed the result tables.](docs/architecture.png)
+
+**Closest prior work I found.** Porikli and Porikli (2025, arXiv:2506.13780) prompted Stable Diffusion 1.5 and Flux-1 with "a photo of a (democratic, republican, fascist, communist, religious, terrorist, etc) person" among many prompt categories, and humans labeled perceived race, gender, age and body type. In their Stable Diffusion 1.5 table the democratic prompt drew a more racially mixed set than the republican prompt (64% White and 26% Black, against 100% White); in Flux-1 both were 100% White. They did not pair seeds, include non-political comparison labels, or report intervals or annotator agreement, and the party contrast gets only brief remarks. This audit adds those controls for one model. It does not replace their broader scope, and its numbers are not comparable with theirs (different model, wording and labels).
+
+## 2. Results
 
 Two layers, kept separate: **main tests** (named in docs/ANALYSIS_PLAN.md before the run) and **exploratory analyses** added afterwards and logged in docs/DEVIATIONS.md (D17, D18): subgroup and apparent-age tables, and apparent skin tone in the arm where no race was stated, with a replication on new seeds. Exploratory results are leads, never confirmations.
 
-Fill from `results/main-sdxlfast/contrasts.csv`, `agreement.csv` and `robustness_no_distortion.csv`. Report for each main test: estimate, interval, corrected p, agreement with manual labels, number of seeds used. State which readings failed the agreement gate. State what could not be concluded. Do not describe an interval that includes zero as "no difference".
+**Main tests (named before the run).** Percentage points of portraits, Democrat minus Republican, with 95% intervals from resampling seeds. The right column is a yardstick: how far two non-political labels move the same feature.
+
+| Feature | Democrat minus Republican | Yardstick: Rotary minus neighborhood association | Corrected p (Democrat vs Republican) |
+|---|---|---|---|
+| Formal attire | -1.0 (-7.4 to +5.8) | +22.7 (13.0 to 33.7) | 0.84 |
+| Smile with teeth | +6.4 (-0.7 to +12.7) | +12.7 (8.6 to 17.0) | 0.28 |
+| Political symbol | +1.4 (-2.0 to +6.4) | +3.6 (0.7 to 7.1) | none: failed the agreement gate (kappa 0.30), estimate only |
+
+On these three features a Democrat and a Republican portrait are not distinguishable in this design, while swapping two non-political labels moves formal attire by about 23 points, so the design can see a label effect when there is one. The intervals are wide, so small differences are not ruled out. Not finding a difference is not evidence that the model is unbiased.
+
+**Exploratory, after the main results were seen (leads, not confirmations).** Of 15 exploratory features, two passed the agreement check with intervals above zero for Democrat: glasses (+6.4, 2.7 to 10.0) and jewelry or watch (+8.3, 2.4 to 14.5). With 15 features a few such intervals are expected by chance.
+
+**Apparent skin tone, no race stated (one annotator, blind to the label, three bins).** Share of assessable portraits judged light / dark, first pass (seeds 0-14) and replication on new seeds (15-29):
+
+| Label | First pass | Replication |
+|---|---|---|
+| Republican | 88.5% / 0% | 75.9% / 0% |
+| Democrat | 44.4% / 18.5% | 53.6% / 25.0% |
+| Rotary Club member | 53.8% / 0% | 86.7% / 3.3% |
+| neighborhood association member | 7.7% / 73.1% | 6.7% / 80.0% |
+| no label | 8.0% / 12.0% | 3.4% / 3.4% |
+
+Democrat minus Republican, paired by seed: mean tone score (0 light, 2 dark) +0.68 (0.43 to 0.96) in the first pass and +0.47 (0.23 to 0.73) in the replication. Replication: dark +26.7 points (13.3 to 43.3), light -20.0 points (-36.7 to -6.7); women +0.64 (0.29 to 1.00), men +0.29 (0.00 to 0.71). The prediction written before the replication (same sign, interval excluding zero) held. Repeating 20 images tested my own consistency (kappa 0.86 in the first pass). Exact shares move between runs; the ordering of the labels is the stable result.
+
+**What cannot be concluded.** These are synthetic pictures from one model, one prompt wording and 15 seeds per cell. The results show an association in the model's output. They do not show why (training data, text encoder or sampler), whether anyone is harmed, or anything about real Democrats or Republicans. Skin tone and age are one person's impressions of pictures and are affected by lighting. See section 8 and `docs/RESULTS.md`.
 
 ## 3. Repository map
 
@@ -139,7 +167,7 @@ python scripts/export_site_results.py --mode main-sdxlfast --out site
 python -m http.server -d site 8000      # then open http://localhost:8000
 ```
 
-**[CHECK BEFORE SUBMITTING]** Steps 1 and 2: copy the exact commands you used from your shell history (`history | grep generate.py`), including how the run folder `outputs/main-sdxlfast` was named, and check them against `python scripts/generate.py run --help`. Run every command above once on a clean clone and correct this section where it differs.
+**Clean-clone check (23 November 2026).** The analysis commands in steps 6 to 8 (not the interactive labeling tools) and the two export scripts in step 9 were re-run from a fresh clone using the committed data and reproduced every result file exactly, except that `results/*/manifest.json` gets a new `created_utc` timestamp each time the analysis runs. Generation, the automated and manual labeling steps, and `make_web_assets.py` need the full image set, hours of compute and the local labeling model, so they were not re-run in that check. The settings used for every generated image are recorded in `outputs/main-sdxlfast/records.jsonl`.
 
 The site must be served over HTTP; opening `index.html` as a file fails because the browser blocks `fetch` on `file://`.
 
@@ -148,7 +176,7 @@ The site must be served over HTTP; opening `index.html` as a file fails because 
 - `outputs/main-sdxlfast/records.jsonl`: all 750 generations, including any excluded, with the exact prompt, seed, model snapshot, settings and timing.
 - `outputs/main-sdxlfast/labels_vlm.jsonl`: automated labels for every image.
 - `outputs/validation/manual_labels.csv`: 90 blind manual labels (18 per label) by one annotator.
-- Full-resolution images: **[FILL: where hosted, e.g. a GitHub release or a dataset host]**. The site ships 384 px thumbnails of all 750.
+- Full-resolution images: the 750 PNGs are attached to the [v1.0 release](https://github.com/eugeniatate-duke/Political-Imagination-Audit/releases/tag/v1.0). The site ships 384 px thumbnails of all 750.
 
 Image files are synthetic and generated under the licenses of the model used. Check the model license before reusing them.
 
@@ -185,6 +213,7 @@ Verified against the full papers:
 - Rothschild, J. E., et al. (2018). Pigeonholing Partisans. *Political Behavior*. doi:10.1007/s11109-018-9457-5
 - Steed, R., and Caliskan, A. (2021). Image Representations Learned With Unsupervised Pre-Training Contain Human-like Biases. *FAccT*. doi:10.1145/3442188.3445932
 - Bianchi, F., et al. (2023). Easily Accessible Text-to-Image Generation Amplifies Demographic Stereotypes at Large Scale. *FAccT*. doi:10.1145/3593013.3594095
+- Porikli, S., and Porikli, V. (2025). Hidden Bias in the Machine: Stereotypes in Text-to-Image Models. arXiv:2506.13780.
 
 Check author lists and titles against the PDFs before submitting. Add models and software used (Stable Diffusion XL, Qwen2.5-VL, diffusers, Ollama) with their official pages.
 
